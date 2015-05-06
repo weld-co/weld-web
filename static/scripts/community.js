@@ -15,6 +15,7 @@ $(document).ready(function(){
         trigger.html("<a class='important flipIn' href='http://eepurl.com/bgi3M1' target='_blank'>That’s it for now. Get Notified of updates!</a>");
       } else {
         container.append(response);
+        history.pushState(null, null, url);
       }
     })
     // Advance page number variable
