@@ -1,0 +1,60 @@
+{% extends 'templates/base.html' %}
+{% block scheme %}light{% endblock %}
+{% block title %}{{ cms.contact.name }}{% endblock %}
+
+{% block content %}
+<a href="/" class="page-close column center"></a>
+<a href="/" class="back-home cell center"></a>
+
+<div class="container">
+    
+  <section class="form-intro">
+    <h1 class="h1-large">{{ cms.contact.headline }}</h1> 
+    <h6>{{ cms.contact.subhead }}</h6>
+    <a href="http://weld.readme.io" class="button book-icon" target="_blank">{{ cms.contact.cta }}</a>
+  </section>
+
+  <form class="form" accept-charset="UTF-8" action="http://formspree.io/admin@weld.co" method="POST">
+      <input type="hidden" name="_next" value="/thanks" />
+      <input type="hidden" name="_subject" value="Contact Page Submission" />
+      <input type="text" name="_gotcha" style="display:none" />
+
+    <label class="label">Which location is this related to?</label>
+    <fieldset class="fieldset fieldset-group">
+      <span class="radio-wrap">
+        <input class="input" type="radio" name="City" id="dallas" value="Dallas" required checked />
+        <label class="radio-label" for="dallas">Dallas</label>
+      </span>
+
+      <span class="radio-wrap">
+        <input class="input" type="radio" name="City" id="nashville" value="Nashville" required />
+        <label class="radio-label" for="nashville">Nashville</label>
+      </span>
+
+      <span class="radio-wrap">
+        <input class="input" type="radio" name="City" id="n-a" value="n-a" required />
+        <label class="radio-label" for="n-a">N/A</label>
+      </span>
+    </fieldset>
+
+     <div class="fieldset">
+      <label class="label" for="name">What’s your name?</label>
+      <input class="input" type="text" name="Name" id="name" autocorrect="off" autocapitalize="on" required />
+    </div>
+
+    <div class="fieldset">
+      <label class="label" for="email" >What’s your electronic mail address?</label>
+      <input class="input" type="email" name="_replyto" id="email" autocorrect="off" autocapitalize="off" required />
+    </div>
+
+    <fieldset class="fieldset">
+      <label class="label" for="message">What’s on your mind?</label>
+      <textarea class="textarea" name="Message" id="message" autocorrect="on" autocapitalize="on"></textarea>
+    </fieldset>
+
+    <input class="button" type="submit" value="Send" />
+
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,289 @@
+@charset "UTF-8";
+
+$arrow-height: 10px;
+$arrow-width: 15px;
+$max-width: 1200px;
+
+/*====================================================
+    Header
+====================================================*/
+
+.community-wrap {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.community-header {
+  background: white;
+  min-height: 350px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.community-h1 {
+  font: $base-font;
+  font-size: 1.2rem;
+  color: $primary-color;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.community-h2 {
+  font-weight: 100;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 1020px;
+  margin-bottom: 2rem;
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+.community-h3 {
+  font: 300 0.875rem/1.6 $sans-font;
+  color: $middle-grey;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+}
+
+/*====================================================
+    Rows
+====================================================*/
+
+.tall-row {
+  min-height: 600px;
+}
+
+.short-row {
+  min-height: 300px;
+}
+
+.tall-row,
+.short-row {
+  animation: fade-in 500ms;
+  @include small {
+    max-height: none;
+    flex-direction: column;
+  }
+}
+
+/*====================================================
+    Blocks
+====================================================*/
+
+.member-block,
+.member-image,
+.image-block,
+.image-overlay {
+  position: relative;
+}
+
+.member-block {
+  @include small {
+    min-height: 100vmax;
+  }
+}
+
+.image-block {
+  @include small {
+    min-height: 50vmax;
+  }
+}
+
+.member-image,
+.member-info {
+  flex: 1;
+  transition: flex 200ms ease-in-out;
+  &:hover { flex: 1.1; }
+}
+
+.member-info {
+  background: white;
+  padding: 0 3.5rem;
+  font-size: 0.875rem;
+  @include small {
+    padding: 1rem;
+  }
+}
+
+.member-name {
+  font-size: 1.325rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.member-description {
+  font-style: italic;
+  color: $grey;
+  margin-bottom: 1rem;
+}
+
+.member-quote {
+  color: $primary-color;
+}
+
+.quote-marks:before {
+  content: '“';
+  margin-left: -0.5rem;
+}
+
+.quote-marks:after {
+  content: '”'
+}
+
+/*====================================================
+    Background Images
+====================================================*/
+
+.member-image,
+.image-block {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*====================================================
+    Up/Down Arrows
+====================================================*/
+
+.up-arrow,
+.down-arrow {
+  position: relative;
+  &:after {
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-left: $arrow-width solid transparent;
+    border-right: $arrow-width solid transparent;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+.up-arrow {
+  &:after {
+    border-bottom: $arrow-height solid white;
+    top: -$arrow-height;
+  }
+}
+
+.down-arrow {
+  &:after {
+    border-top: $arrow-height solid white;
+    bottom: -$arrow-height;
+  }
+}
+
+/*====================================================
+    Logos
+====================================================*/
+
+.member-logo {
+  transition: transform 200ms ease-in-out;
+  width: 50%;
+  height: auto;
+}
+
+// Hover .member-block, scale logo
+
+.member-image,
+.image-block {
+  &:hover {
+    .member-logo {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/*====================================================
+    Gradient Overlay
+====================================================*/
+
+.block-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom left, fade-out($blue, 0.4), fade-out($primary-color, 0.4));
+  opacity: 0.8;
+  transition: opacity 300ms;
+  color: white;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  user-select: none;
+  
+  .image-caption,
+  .image-credits {
+    text-align: center;
+    transition: opacity 300ms, transform 300ms $cubic;
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+
+  .image-caption {
+    font-size: 1.2rem;
+    transform: translateY(5rem);
+  }
+
+  .image-credits {
+    font-size: 0.875rem;
+    transform: translateY(10rem);
+  }
+
+  &:hover {
+    opacity: 1;
+    .image-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .image-credits {
+      opacity: 0.5;
+      transform: translateY(0.5rem);
+    }
+  }
+
+  // Change styles of figcaption elements
+  @include small {
+    opacity: 1;
+    .image-caption {
+      font-size: 1rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .image-credits {
+      opacity: 0.5;
+      transform: translateY(0.5rem);
+    }
+  }
+}
+
+/*====================================================
+    At the end of each section
+====================================================*/
+
+.load-more {
+  cursor: pointer;
+  height: 25vh;
+  max-width: $max-width;
+  margin: 0 auto;
+  background: white;
+  border-bottom: 1px dotted $light-grey;
+}
+
+.loading-more {
+  @extend .load-more;
+  display: none;
+}
+
+/*====================================================
+    Footer
+====================================================*/
+
+.community-footer {
+  padding: 2rem;
+  height: 50vh;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>{{ getSetting('site_name') }} - {% block title %}We Create Better Together{% endblock %}</title>
+  <meta name="description" content="{{ getSetting('site_description') }}">
+  <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico">
+
+  <!-- Mobile Standalone Mode -->
+  <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1, user-scalable=no{% endblock %}">
+  <meta name="apple-mobile-web-app-title" content="WELD.CO">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="/static/images/apple-startup-image.png">
+
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7238032/778086/css/fonts.css" />
+ 
+</head>
+  
+  <body class="{% block scheme %}dark{% endblock %}">
+
+    {% block content %}{% endblock %}
+
+  <!-- build:js /static/scripts/main.js -->
+  <script src="/static/scripts/vendor/jquery-2.1.3.js"></script>
+  <script src="/static/scripts/vendor/jquery.cookie.js"></script>
+  <script src="/static/scripts/vendor/jquery.vide.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.swipebox.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.plugin.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.countdown.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.typetype.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.appear.js"></script>
+  
+  <script src="/static/scripts/countdown.js"></script>
+  <script src="/static/scripts/typetype.js"></script>
+  <script src="/static/scripts/gallery.js"></script>
+  <script src="/static/scripts/nav.js"></script>
+  <script src="/static/scripts/button_progress.js"></script>
+  <script src="/static/scripts/memberships.js"></script>
+  <script src="/static/scripts/page_close.js"></script>
+  <script src="/static/scripts/click_animation.js"></script>
+  <script src="/static/scripts/fullscreen_form.js"></script>
+  <script src="/static/scripts/password.js"></script>
+  <script src="/static/scripts/bookings.js"></script>
+  <script src="/static/scripts/community.js"></script>
+  <script src="/static/scripts/escape_to_cms.js"></script>
+  <!-- endbuild -->
+
+  <!-- Fresh URL - Learn more at http://wistia.com/blog/fresh-url -->
+  <script src="//fast.wistia.net/labs/fresh-url/v1.js" async></script>
+  
+  <!-- Google Analytics -->
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', '{{ getSetting('analytics_id') }}', 'auto');ga('send', 'pageview');</script>
+  <!-- GoSquared -->
+  <script> !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push( arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0]; d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode. insertBefore(d,q)}(window,document,'script','_gs');  _gs('GSN-413702-U'); </script>
+  
+  </body>
+</html>

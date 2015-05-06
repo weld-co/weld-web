@@ -1,0 +1,104 @@
+{% extends 'templates/base.html' %}
+{% block title %}Apply for Membership{% endblock %}
+
+{% block content %}
+<a href="/" class="page-close cell center" tabindex="-1"></a>
+<a href="/" class="back-home cell center" tabindex="-1"></a>
+
+<div class="fs-progress-bar"></div>
+<section data-js="overiew-toggle" class="fs-form-wrap row full-screen padding no-scroll">
+  <div data-js="message" class="fs-form-message hidden">Almost Done!</div>
+
+  <form class="fs-form" accept-charset="UTF-8" action="https://formkeep.com/f/5483b086e486" method="POST">
+    <input type="hidden" name="utf8" value="✓">
+
+    <fieldset class="fs-form-item current" required>
+      <label class="fs-label">Where are you located?</label>
+      <div class="fs-input-group">
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="dallas" name="Location" value="Dallas" checked>
+          <label class="fs-label" for="dallas">Dallas</label>
+        </span>
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="nashville" name="Location" value="Nashville">
+          <label class="fs-label" for="nashville">Nashville</label>
+        </span>
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="other-location" name="Location" value="Other">
+          <label class="fs-label" for="other-location">Other</label>
+          <input class="fs-input other" type="text" name="Other Location" value="" placeholder="Sweet! Which city?" >
+        </span>
+      </div>
+    </fieldset>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="name">What’s your full name?</label>
+      <input class="fs-input" type="text" id="name" name="name" placeholder="Seymour Butts" pattern="[a-zA-Z\s]+" autocorrect="off" autocapitalize="on" required>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="email">What’s your email address?</label>
+      <input class="fs-input" type="email" id="email" name="email" placeholder="you@internet.com" autocorrect="off" autocapitalize="off" required>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="website">What’s your website?</label>
+      <input class="fs-input" type="url" id="website" name="url" placeholder="yourwebsite.com" autocorrect="off" autocapitalize="off" required>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="social">What’s your Twitter/Instagram handle?</label>
+      <input class="fs-input" type="text" id="social" name="Social" placeholder="Whichever one you use more." autocorrect="off" autocapitalize="off" required>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="reference">How’d you hear about WELD?</label>
+      <div class="fs-help-block"></div>
+      <textarea class="fs-input vert" type="textarea" id="reference" name="Reference" placeholder="Currently Digital members must have a personal reference from an existing member."  autocorrect="on" autocapitalize="on" required></textarea>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="work">What type of work do you do?</label>
+      <input class="fs-input" type="text" id="work" name="Work" placeholder="i.e. Mathmagician, Make Music, etc." autocorrect="off" autocapitalize="on" required>
+    </div>
+
+    <div class="fs-form-item">
+      <label class="fs-label" for="why">Why are you interested in joining our community?</label>
+      <textarea class="fs-input vert" type="textarea" id="why" name="why" placeholder="Our members join WELD for much more than space to work in." autocorrect="on" autocapitalize="on" required></textarea>
+    </div>
+
+    <fieldset class="fs-form-item" required>
+      <label class="fs-label">Any additional membership options?</label>
+      <div class="fs-input-group">
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="{{ cms.desk.name }}" name="Membership" value="{{ cms.desk.name }}">
+          <label class="fs-label" for="{{ cms.desk.name }}">{{ cms.desk.name }}</label>
+        </span>
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="{{ cms.office.name }}" name="Membership" value="{{ cms.office.name }}">
+          <label class="fs-label" for="{{ cms.office.name }}">{{ cms.office.name }}</label>
+        </span>
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="digital" name="Membership" value="Digital">
+          <label class="fs-label" for="digital">Digital Only</label>
+        </span>
+
+        <span class="fs-radio">
+          <input class="fs-input" type="radio" id="no-thanks" name="Membership" value="Basic">
+          <label class="fs-label" for="no-thanks">No, thanks.</label>
+        </span>
+
+      </div>
+    </fieldset>
+    <input data-js="submit" class="button fs-form-submit" type="submit" value="Sumbit your answers!">
+  </form> <!-- apply-form -->
+</section> <!-- form-wrap -->
+<div data-js="prev" class="button-secondary prev-button disabled">Prev</div>
+<div data-js="next" class="button next-button">Next</div>
+{% endblock %}

@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+/*====================================================
+  Full Screen Form
+====================================================*/
+
+.fs-form-wrap {
+  position: relative;
+  @include small {
+    overflow-y: scroll;
+    height: auto;
+    margin-bottom: 10rem;
+  }
+}
+
+.fs-form {
+  width: 100%;
+  font: 500 2.8vmax/1 $slab-font;
+  align-self: center;
+  position: relative;
+  @include small {
+    align-self: flex-start;
+    margin-top: 4rem;
+  }
+}
+
+.fs-progress-bar {
+  position: fixed;
+  height: 4px;
+  background: $primary-color;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: width 300ms $cubic;
+}
+
+/*====================================================
+    Form Buttons
+====================================================*/
+
+.fs-form-submit {
+  display: none;
+  @include small {
+    display: block;
+  }
+}
+
+.next-button,
+.prev-button { 
+  bottom: $page-padding;
+  position: absolute;
+  z-index: 100;
+  min-width: 150px;
+  height: 3rem;
+  @include small {
+    display: none;
+  }
+}
+
+.next-button {
+  right: $page-padding;
+  animation: fade-in 2s;
+  &:before {
+    content: '⌘ + Enter';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, visibility, transform;
+    transition-duration: 250ms;
+  }
+  &:hover:before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(2.25rem);
+  }
+}
+
+.prev-button {
+  left: $page-padding;
+  padding-bottom: 2rem;
+}
+
+/*====================================================
+    Loading Indicator inside buttons after click
+====================================================*/
+
+.isLoading {
+  height: 3.5rem;
+}
+
+.loader {
+  display: inline-block;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-style: solid;
+  border-width: 2px;
+  border-color: fade-out(white, 0.5);
+  border-left-color: white;
+  animation: rotate 500ms infinite linear, fade-in 1s ease;
+}
+
+/*====================================================
+    Form items
+====================================================*/
+
+.fs-form-item {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  @include small {
+    margin-bottom: 2rem;
+    pointer-events: auto;
+    position: static;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+}
+
+.fs-form-item > .fs-label {
+  display: inline-block;
+  margin-bottom: 2rem;
+
+  @include small {
+    margin-bottom: 1rem;
+  }
+}
+
+.fs-help-block {
+  font: 300 14px $sans-font;
+  margin-bottom: 2rem;
+}
+
+.fs-input {
+  display: block;
+  border-radius: 0;
+  font-family: $sans-font;
+  color: $blue;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid $blue-inactive;
+  outline: none;
+  width: 100%;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.fs-input::-webkit-input-placeholder { 
+   color: $blue-inactive;  
+}
+
+/*====================================================
+    Transitions between sections of form
+====================================================*/
+
+.fs-form-item > .fs-label,
+.fs-form-item > .fs-input,
+.fs-form-item > .fs-input-group {
+  transition-property: transform, opacity, visibility;
+  transition-duration: 600ms, 400ms, 400ms;
+  transition-timing-function: $cubic, ease, ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30vh);
+  @include small {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+    border-width: 2px;
+  }
+}
+
+.fs-form-item > .fs-input {
+  @include small {
+    color: white;
+  }
+}
+
+// staggering the label and input
+.fs-form-item > .fs-label {
+  transition-duration: 500ms, 400ms, 400ms;
+  @include small {
+    color: $blue;
+    margin-bottom: 1rem;
+  }
+}
+
+.fs-form-item.current {
+  position: static;
+  pointer-events: auto;
+}
+
+.fs-form-item.current > .fs-label,
+.fs-form-item.current > .fs-input,
+.fs-form-item.current > .fs-input-group {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fs-form-item.out > .fs-label,
+.fs-form-item.out > .fs-input,
+.fs-form-item.out > .fs-input-group {
+  transform: translateY(-30vh);
+}
+
+/*====================================================
+    Checkbox & Radio Styles
+====================================================*/
+
+.fs-checkbox,
+.fs-radio {
+  display: inline;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  @include small {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.fs-input[type="checkbox"],
+.fs-input[type="radio"] {
+  -webkit-appearance: none;
+  outline: none;
+  overflow: visible;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3vmax;
+  width: 3vmax;
+  display: inline-block;
+  vertical-align: baseline;
+  @include small {
+    height: 22px;
+    width: 22px;
+    transform: translateY(2px);
+  }
+  @include large {
+    &:checked {
+      animation: springy 200ms cubic-bezier(0.5, -1, 0.25, 2);
+    }
+  }
+}
+
+.fs-input[type="checkbox"] {
+  background-image: url(../images/ui/fs-checkbox.svg);
+  &:checked {
+    background-image: url(../images/ui/fs-checkbox-checked.svg);
+  }
+}
+
+.fs-input[type="radio"] {
+  background-image: url(../images/ui/fs-radio.svg);
+  &:checked {
+    background-image: url(../images/ui/fs-radio-checked.svg);
+  }
+}
+
+.fs-input[type="checkbox"] + .fs-label,
+.fs-input[type="radio"] + .fs-label {
+  color: $blue-inactive; 
+  font-family: $sans-font;
+  font-weight: $base-font-weight;
+}
+
+.fs-input[type="checkbox"]:checked + .fs-label,
+.fs-input[type="radio"]:checked + .fs-label {
+  color: $blue;
+  @include small {
+    color: white;
+  }
+}
+
+/*====================================================
+    Hide .other inputs until toggled
+====================================================*/
+
+.fs-input[type="checkbox"] ~ .fs-input.other,
+.fs-input[type="radio"] ~ .fs-input.other {
+  margin-top: 2rem;
+  display: none;
+}
+
+.fs-input[type="checkbox"]:checked ~ .fs-input.other,
+.fs-input[type="radio"]:checked ~ .fs-input.other {
+  display: block;
+  animation: fade-in 500ms;
+}
+
+/*====================================================
+    OVERVIEW State - Applies after last form-item
+====================================================*/
+
+.fs-form-message {
+  color: $blue;
+  margin-bottom: 3rem;
+  font: 500 3vmax/1 $slab-font;
+  animation: fade-in 2s;
+}
+
+.fs-form-wrap.fs-overview {
+  height: auto;
+  margin-bottom: 10rem;
+}
+
+.fs-overview .fs-form {
+  flex-direction: column;
+}
+
+.fs-overview .fs-form-item {
+  pointer-events: auto;
+  position: static;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  animation: fade-in 300ms ease, slide-up 300ms $cubic;
+  .fs-label,
+  .fs-input:not(.other),
+  .fs-input-group {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: none;
+  }
+
+  > .fs-label {
+    color: $blue-inactive;
+    margin-bottom: 1rem;
+  }
+
+  > .fs-input,
+  .fs-input[type="checkbox"]:checked + .fs-label,
+  .fs-input[type="radio"]:checked + .fs-label {
+    color: white;
+  }
+
+  .fs-input[type="checkbox"],
+  .fs-input[type="radio"] {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+.fs-overview .fs-form-submit {
+  display: inline-flex;
+}
+
+/*====================================================
+    Validation
+====================================================*/
+
+.fs-input:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]):focus {
+  &:valid,
+  &:invalid {
+    background: url('../images/ui/invalid-indicator.svg') no-repeat;
+    background-position: right center;
+    background-size: 8px;
+  }
+  &:valid { background-image: url(/static/images/valid-indicator.svg); }
+  &:invalid { color: #ff5c50 !important; }
+}

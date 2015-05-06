@@ -1,0 +1,26 @@
+.footer {
+  background: lighten($black, 5);
+  min-height: 10vh;
+  padding: 2rem;
+
+}
+
+.footer-wrap {
+  max-width: 1200px;
+    @include small {
+    flex-direction: column;
+  }
+}
+
+.footer-item {
+  color: $grey;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 4;
+  white-space: nowrap;
+  flex: auto;
+}
+
+.small-logo {
+  line-height: 0;
+}

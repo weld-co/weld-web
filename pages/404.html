@@ -1,0 +1,8 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<div class="message-wrap column full-screen center">
+  <h1 class="message-heading">{{ cms.notfound.heading }}</h1>
+  <p class="message-body"><a href="{{cms.notfound.link}}" target="_blank">{{ cms.notfound.body }}</a></p>
+  <a href="/" class="button-secondary">← Back Home</a>
+</div>
+{% endblock %}

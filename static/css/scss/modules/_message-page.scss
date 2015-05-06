@@ -1,0 +1,24 @@
+.message-wrap {
+  background: linear-gradient(to top left, $blue, $primary-color);
+  padding: 10%;
+  color: white;
+  
+  .message-heading {
+    font: $headline-font;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .message-body {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .cell {
+    flex-grow: 0;
+  }
+
+  .button {
+    margin: 2rem;
+  }
+}

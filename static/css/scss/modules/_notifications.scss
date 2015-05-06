@@ -1,0 +1,37 @@
+/*====================================================
+    Notification - CTA in Bottom Right Corner
+====================================================*/
+
+.notification {
+  // Placement
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  // Base Style
+  background: white;
+  border-radius: 300px;
+  box-shadow: 0 2px 6px 2px fade-out($grey, 0.8);
+  width: 225px;
+  padding: 1rem;
+
+  // Contents Style
+  color: $dark-grey;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+
+  // Hover Style
+  &:hover {
+    color: $primary-color
+  }
+
+  // Mobile - To Bottom of Page
+  @include small {
+    position: static;
+    display: block;
+    min-width: 100%;
+    margin: 2rem 0;
+  }
+}

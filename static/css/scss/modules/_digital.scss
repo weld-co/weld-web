@@ -1,0 +1,41 @@
+.section-1,
+.section-2, 
+.section-3, 
+.section-4, 
+.section-5, 
+.section-6 {
+  min-width: 1000px;
+}
+
+.section-1 {
+  background: url(../images/welderwire/section-0.jpg) no-repeat center top 10vh, url(../images/welderwire/section-1.jpg) no-repeat center bottom, #302824;
+  height: 100vh;
+  max-height: 1000px;
+  min-height: 860px;
+  animation: slide-up 500ms ease-in-out;
+}
+
+.section-2 {
+  background: white url(../images/welderwire/section-2.jpg) no-repeat center;
+  height: 720px;
+}
+
+.section-3 {
+  background: #ef5929 url(../images/welderwire/section-3.jpg) no-repeat center;
+  height: 740px;
+}
+
+.section-4 {
+  background: #f1f1f1 url(../images/welderwire/section-4.jpg) no-repeat center;
+  height: 500px;
+}
+
+.section-5 {
+  background: white url(../images/welderwire/section-5.jpg) no-repeat center;
+  height: 1131px;
+}
+
+.section-6 {
+  background: #f1f1f1 url(../images/welderwire/section-6.jpg) no-repeat center;
+  height: 350px;
+}

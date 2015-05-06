@@ -1,0 +1,91 @@
+/*====================================================
+    Type
+====================================================*/
+
+$sans-font: 'Gotham SSm A', 'Gotham SSm B', Helvetica, sans-serif;
+$slab-font: 'Vitesse SSm A', 'Vitesse SSm B', 'Gotham SSm A', 'Gotham SSm B', Helvetica, sans-serif;
+$base-font-size: 1rem;
+$base-font-weight: 300;
+$base-line-height: 1.6;
+$base-font: $base-font-weight $base-font-size $sans-font;
+$headline-font: 800 4.75vmin/1.2 $slab-font;
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font: $base-font;
+  line-height: $base-line-height;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  @include small {
+    font-size: 0.75rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $slab-font;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  @include small {
+    font-size: 1.25rem;
+  }
+}
+
+.h1-large {
+  font-size: 2.75rem;
+  line-height: 1;
+  @include small {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  @include small {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-family: $sans-font;
+  line-height: 1.6;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $grey;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+p:not(:last-of-type) {
+  margin-bottom: 1.5rem; 
+}

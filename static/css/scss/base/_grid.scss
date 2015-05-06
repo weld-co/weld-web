@@ -1,0 +1,61 @@
+/*====================================================
+    Grid
+====================================================*/
+
+$cell-padding: 1rem;
+$gutter: 1rem;
+
+.column,
+.row,
+.cell {
+  display: flex;
+  flex-grow: 1;
+}
+
+.column {
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+// Add .cell class to any element within
+// a Row or Column that you want to
+// inherit the Grid style
+
+.cell { }
+
+// Padding
+// Add to Row, Column, or Cell element
+
+.cell-padding {
+  padding: $cell-padding;
+}
+
+.cell-padding .item {
+  padding: $cell-padding;
+}
+
+.cell-padding + .cell-padding {
+  padding-top: 0;
+}
+
+// Gutters
+// Add to Row or Column Element
+
+.gutters .cell {
+  margin: $gutter;
+}
+
+.pricing {
+  flex-basis: 200px;
+}
+
+.half-height {
+  height: 50%;
+  overflow: hidden;
+}

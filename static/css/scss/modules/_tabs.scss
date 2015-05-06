@@ -1,0 +1,51 @@
+$tabs-height: 5rem;
+$mobile-tabs-height: 3.5rem;
+
+.tabs {
+  user-select: none;
+  background: $primary-color;
+  flex-direction: row;
+  height: $tabs-height;
+  text-align: center;
+  position: relative;
+  @include small {
+    height: $mobile-tabs-height;
+  }
+}
+
+.tab {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  background: white;
+  border-right: $border;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 300ms ease;
+  &:hover {
+    box-shadow: inset 0 -4px 0px 0px $primary-color;
+  }
+}
+
+.tab.current {
+  border: none;
+}
+
+.tab.current {
+  background: $primary-color;
+  color: white;
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -10px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 15px 0 15px;
+    border-color: transparent;
+    border-top-color: $primary-color;
+  }
+}

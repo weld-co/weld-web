@@ -1,0 +1,107 @@
+/*====================================================
+    Buttons
+====================================================*/
+
+button {
+  // Button Reset
+  border: none;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button {
+  @extend button;
+  // Base Styles
+  display: inline-block;
+  background: $primary-color;
+  border-radius: 3px;
+  box-shadow: 0 4px 0 0 $red;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+
+
+  // Contents
+  text-align: center;
+  color: white;
+  font-family: $sans-font;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  // Animation
+  transition: transform 200ms, height 300ms $cubic; // height is for isLoading indicator
+  &:hover { transform: translateY(-3px); }
+  &:active { transform: translateY(-1px); transition: none; }
+
+  // Space between buttons
+  &.margin-right {
+    margin-right: 1rem;
+  }
+
+  // Responsive
+  @include small {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    // Contents
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  &-white {
+    @extend .button;
+    color: $primary-color;
+    background-color: white;
+    box-shadow: 0 4px 0 0 $lightest-grey;
+  }
+
+  &-grey {
+    @extend .button;
+    background-color: $lightest-grey;
+    box-shadow: 0 4px 0 0 $light-grey;
+  }
+
+  // Outline Buttons
+  &-secondary {
+    @extend .button;
+    background-color: transparent;
+    box-shadow: none;
+    border: 2px solid white;
+
+    // Fill on hover
+    &:hover {
+      background-color: rgba(255,255,255,0.25);
+    }
+  }
+}
+
+// Add class for icon
+.download:before {
+  content: url(../images/ui/download-icon.svg);
+  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.book-icon:before {
+  content: url(../images/ui/book-icon.svg);
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.add:before {
+  content: url(../images/ui/add-icon.svg);
+}
+
+.added:before {
+  content: url(../images/ui/check-icon.svg);
+  animation: scaleInUp 250ms $cubic;
+}

@@ -1,0 +1,50 @@
+$image-height: 25vh;
+$image-width: 25vw;
+$mobile-image-size: 50vw;
+
+.gallery-overlay {
+  background: $bkgd-gradient-reverse;
+  opacity: 0.5;
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.gallery-thumbnail {
+  overflow: hidden;
+  height: $image-height;
+  width: $image-width;
+  @include small {
+    height: $mobile-image-size;
+    width: $mobile-image-size;
+  }
+}
+
+.gallery-image {
+  object-fit: cover;
+  height: $image-height;
+  width: $image-width;
+  z-index: 0;
+  &:hover {
+    filter: brightness(0.8);
+  }
+  @include small {
+    height: $mobile-image-size;
+    width: $mobile-image-size;
+  }
+}
+
+.credit-block {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 25px;
+  font-size: 0.75rem;
+
+  &:hover {
+    background: rgba(255,255,255,0.5);
+    color: $black;
+  }
+}

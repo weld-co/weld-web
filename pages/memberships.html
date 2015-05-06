@@ -1,0 +1,34 @@
+{% extends 'templates/base.html' %}
+{% block title %}Membership Types{% endblock %}
+
+{% block content %}
+<a href="/" class="page-close cell center reverse"></a>
+<a href="/" class="back-home cell center reverse"></a>
+
+<section class="memberships column center">
+<a class="announcement row center" href="/digital">We now offer a Digital Membership for $60 a month! <span class="important"> Learn More.</span></a>
+  <div class="membership-wrap row">
+    <span class="tier column center">
+      <h1 class="tier-title-primary">{{ cms.membership.name }}</h1>
+      <p class="tier-price-primary"><span class="starting-at"></span>$<span class="base-cost">{{ cms.membership.price }}</span>/mo</p>
+      <p class="tier-description-primary">{{ cms.membership.description }}</p>
+    </span>
+  </div>
+  <div class="addons-wrap row">
+    <span class="tier column">
+      <h2 class="tier-title">{{ cms.desk.name }}</h2>
+      <span data-js="desk-toggle" class="small-button button-grey add"></span>
+      <p class="tier-price">+ $<span class="desk-cost">{{ cms.desk.additional_cost }}</span>/mo</p>
+      <p class="tier-description">{{ cms.desk.description }}</p>
+    </span>
+    <span class="tier column">
+      <h2 class="tier-title">{{ cms.office.name }}</h2>
+      <span data-js="office-toggle" class="small-button button-grey add"></span>
+      <p class="tier-price">Starting at + $<span class="office-cost">{{ cms.office.additional_cost }}</span>/mo</p>
+      <p class="tier-description">{{ cms.office.description }}</p>
+    </span>
+  </div>
+  <a data-js="button-text" class="button slide-up" href="/apply">Apply For Membership</a>
+  <a class="other-options row center" href="/contact">Need a bit more room? <span class="important">Ask us about larger office space.</span></a>
+</section>
+{% endblock %}

@@ -1,0 +1,141 @@
+.memberships {
+  padding: 0 8%;
+  @include small {
+    padding: 1rem;
+  }
+}
+
+.announcement {
+  height: 200px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  white-space: pre-wrap;
+  @include small {
+    flex-direction: column;
+  }
+}
+
+.membership-wrap,
+.addons-wrap {
+  max-width: 940px;
+}
+
+.membership-wrap {
+  margin-bottom: 20px;
+}
+
+.addons-wrap {
+  margin-bottom: 3rem;
+  @include small {
+    flex-direction: column;
+  }
+}
+
+.tier {
+  font: $base-font;
+  color: $black;
+  flex-grow: 1;
+  background: white;
+  // Position Relative for addon-toggle
+  position: relative;
+}
+
+.membership-wrap .tier {
+  text-align: center;
+  padding: 3rem 4rem;
+  animation: slide-up 500ms ease-in-out;
+  @include small {
+    padding: 2rem;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.addons-wrap .tier {
+  min-height: 250px;
+  padding: 2rem;
+  &:nth-child(1) {
+    animation: slide-up 600ms ease-in-out;
+    margin-right: 20px;
+  }
+  &:nth-child(2) {
+    animation: slide-up 700ms ease-in-out;
+  }
+  @include small {
+    margin: 0 0 20px 0 !important;
+  }
+}
+
+.tier-title {
+  font: 300 1.5rem/1 $slab-font;
+  color: $primary-color;
+  margin-bottom: 0.5rem;
+
+  &-primary {
+    @extend .tier-title;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.75rem;
+    @include small {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.small-button {
+  width: 60px;
+  max-height: 45px;
+  padding: 1rem 0;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  @media screen and (max-width: 400px) {
+    position: initial;
+  }
+}
+
+.tier-price,
+.tier-description,
+.tier-cta {
+  font-size: 0.8rem;
+  transition-property: background, opacity;
+  transition-duration: 300ms;
+}
+
+.tier-price {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  &-primary {
+    @extend .tier-price;
+    font-size: 1.125rem;
+  }
+}
+
+.tier-description {
+  color: $grey;
+  line-height: 1.6;
+  &-primary {
+    @extend .tier-description;
+    font: 300 1.125rem/1.6 $slab-font;
+  }
+}
+
+.slide-up {
+  animation: slide-up 900ms ease-in-out;
+}
+
+.other-options {
+  height: 10vh;
+  color: $grey;
+  font-size: 1.5rem;
+  font: $base-font;
+  text-align: center;
+  margin: 2rem 0;
+  width: 100%;
+  // combats flex: wrap interfering with .important span
+  white-space: pre-wrap;
+}

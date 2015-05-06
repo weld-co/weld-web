@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+html.swipebox-html.swipebox-touch {
+  overflow: hidden!important;
+}
+
+#swipebox-overlay {
+  background: fade-out($dark-black, 0.1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000!important;
+  overflow: hidden;
+  user-select: none;
+}
+
+#swipebox-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#swipebox-slider {
+  transition : transform 0.4s ease;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  white-space: nowrap;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  
+  .slide {
+    height: 100%;
+    width: 100%;
+    line-height: 1px;
+    text-align: center;
+    display: inline-block;
+    
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 50%;
+      width: 1px;
+      margin-right: -1px;
+    }
+
+    img,
+    .swipebox-video-container,
+    .swipebox-inline-container {
+      display: inline-block;
+      max-height: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .swipebox-video-container {
+      background:none;
+      max-width: 1140px;
+      max-height: 100%;
+      width: 100%;
+      padding:5%;
+      box-sizing: border-box;
+
+      .swipebox-video{
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+        position: relative; 
+
+        iframe{
+          width: 100%!important; 
+          height: 100%!important;
+          position: absolute;
+          top: 0; left: 0;
+        }
+      }
+    }
+  }
+  
+  .slide-loading {
+    background: url(../images/ui/ui/loading.gif) no-repeat center center;
+  }
+}
+
+#swipebox-top-bar {
+  display: none !important;
+}
+
+#swipebox-bottom-bar {
+  position: absolute;
+}
+
+#swipebox-arrows {  
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+#swipebox-prev, 
+#swipebox-next {
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#swipebox-prev {
+  justify-content: flex-start;
+  &:before {
+    font: 1.25rem $sans-font;
+    content: url(../images/ui/left-arrow.svg);
+  }
+}
+
+#swipebox-next {
+  justify-content: flex-end;
+  &:before {
+    font: 1.25rem $sans-font;
+    content: url(../images/ui/right-arrow.svg);
+  }
+}
+
+#swipebox-close {
+  cursor: pointer;
+  // Display
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  // Contents
+  &:before {
+    font: 1.25rem $sans-font;
+    content: "✕";
+  }
+
+  // Placement
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  // Base Structure
+  color: inherit;
+  background: transparent;
+  height: $nav-button-size;
+  width: $nav-button-size;
+  border-radius: 100%;
+  z-index: 1000;
+
+  &:hover,
+  &:active {
+    color: $primary-color;
+  }
+}
+
+.swipebox-no-touch {
+  #swipebox-overlay.rightSpring #swipebox-slider {
+    animation : rightSpring 0.3s;
+  }
+
+  #swipebox-overlay.leftSpring  #swipebox-slider {
+    animation : leftSpring 0.3s;
+  }
+}
+
+.swipebox-touch {#swipebox-container {
+    &:before,
+    &:after{
+      backface-visibility:hidden;
+      transition : all .3s ease;
+      content : ' ';
+      position: absolute;
+      z-index: 999;
+      top: 0;
+      height: 100%;
+      width: 20px;
+      opacity: 0;
+    }
+
+    &:before {
+      left: 0;
+      box-shadow: inset 10px 0px 10px -8px #656565;
+    }
+
+    &:after {
+      right: 0;
+      box-shadow: inset -10px 0px 10px -8px #656565;
+    }
+  }
+
+  #swipebox-overlay.leftSpringTouch #swipebox-container {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+    
+  #swipebox-overlay.rightSpringTouch #swipebox-container {
+    &:after{ opacity: 1; }
+  }
+}
+
+@keyframes rightSpring {
+  0% { left:0; }
+  50% { left:-30px; }
+  100% { left:0; }
+}
+
+@keyframes leftSpring {
+  0% { left:0; }
+  50% { left:30px; }
+  100% { left:0; }
+}

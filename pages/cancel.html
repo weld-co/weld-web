@@ -1,0 +1,45 @@
+{% extends 'templates/base.html' %}
+{% block scheme %}light{% endblock %}
+{% block title %}Cancel/Change of Memberships Request{% endblock %}
+
+{% block content %}
+<a href="/" class="page-close column center"></a>
+<a href="/" class="back-home cell center"></a>
+
+<div class="container">
+    
+  <section class="form-intro">
+    <h1>Cancel or change your membership.</h1> 
+  </section>
+
+  <form class="form" accept-charset="UTF-8" action="http://formspree.io/admin@weld.co" method="POST">
+      <input type="hidden" name="_next" value="/thanks" />
+      <input type="hidden" name="_subject" value="Cancel/Change Request" />
+      <input type="text" name="_gotcha" style="display:none" />
+
+     <div class="fieldset">
+      <label class="label" for="name">What’s your name?</label>
+      <input class="input" type="text" name="Name" id="name" autocorrect="off" autocapitalize="on" required />
+    </div>
+
+    <div class="fieldset">
+      <label class="label" for="email" >What’s your email address?</label>
+      <input class="input" type="email" name="_replyto" id="email" autocorrect="off" autocapitalize="off" required />
+    </div>
+
+    <div class="fieldset">
+      <label class="label" for="date">Date you’d like this change to take effect.</label>
+      <input class="input uppercase" type="date" name="Date" id="date" placeholder="MM/DD/YYYY" required />
+    </div>
+
+    <fieldset class="fieldset">
+      <label class="label" for="message">Primary reason for cancelling or changing your membership type?</label>
+      <textarea class="textarea" name="Message" id="message" autocorrect="on" autocapitalize="on" required></textarea>
+    </fieldset>
+
+    <input class="button" type="submit" value="Submit Request" />
+
+  </form>
+</div>
+
+{% endblock %}
