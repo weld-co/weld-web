@@ -58,5 +58,6 @@ function getContent() {
     indexOfPage = indexOfPage > totalPages.length ? 0 : indexOfPage + 1;
   })
   // #TODO Throw error message if it fails
-  .fail(function(response) { container.html("<span class='fail-message row center half-height important flipIn'>Dang, something ain't right. Please refresh.</span>"); });
+  // container.html("<span class='fail-message row center half-height important flipIn'>Dang, something ain't right. Please refresh.</span>");
+  .fail(function(response) { $('.modal').addClass('open'); });
 };
