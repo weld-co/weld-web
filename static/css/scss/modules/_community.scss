@@ -153,8 +153,8 @@ $max-width: 1200px;
   position: relative;
   &:after {
     content: '';
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: $arrow-width solid transparent;
     border-right: $arrow-width solid transparent;
     position: absolute;
@@ -215,7 +215,7 @@ $max-width: 1200px;
   height: 100%;
   line-height: 1;
   user-select: none;
-  
+
   .image-caption,
   .image-credits {
     text-align: center;
@@ -262,21 +262,14 @@ $max-width: 1200px;
 }
 
 /*====================================================
-    At the end of each section
+  Trigger to load new section
 ====================================================*/
 
 .load-more {
+  background: $primary-color;
+  color: white;
+  height: 50px;
   cursor: pointer;
-  height: 25vh;
-  max-width: $max-width;
-  margin: 0 auto;
-  background: white;
-  border-bottom: 1px dotted $light-grey;
-}
-
-.loading-more {
-  @extend .load-more;
-  display: none;
 }
 
 /*====================================================
@@ -285,5 +278,4 @@ $max-width: 1200px;
 
 .community-footer {
   padding: 2rem;
-  height: 50vh;
 }

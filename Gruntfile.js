@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           // Webhook minifies CSS when it deploys
-          style: 'expanded'
+          style: 'compressed'
         },
         files: {
           'static/css/main.css': 'static/css/scss/main.scss'

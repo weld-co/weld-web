@@ -65,6 +65,7 @@ button {
 
   &-grey {
     @extend .button;
+    color: $black;
     background-color: $lightest-grey;
     box-shadow: 0 4px 0 0 $light-grey;
   }

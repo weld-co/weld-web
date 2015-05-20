@@ -1,0 +1,46 @@
+/*====================================================
+    Modal Overlay
+====================================================*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+  color: white;
+
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    .modal-message-wrap {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.modal-message-wrap {
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(50vh);
+  transition-duration: 300ms;
+  transition-property: opacity, transform;
+}
+
+.modal-message-headline {
+  margin-bottom: 30px;
+}
+
+.modal-background {
+  background: fade-out($black, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  cursor: url(../images/ui/close-icon.svg), default;
+}

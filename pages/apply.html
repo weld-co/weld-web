@@ -73,27 +73,12 @@
     <fieldset class="fs-form-item" required>
       <label class="fs-label">Any additional membership options?</label>
       <div class="fs-input-group">
-
+        {% for row in cms.memberships.type %}
         <span class="fs-radio">
-          <input class="fs-input" type="radio" id="{{ cms.desk.name }}" name="Membership" value="{{ cms.desk.name }}">
-          <label class="fs-label" for="{{ cms.desk.name }}">{{ cms.desk.name }}</label>
+          <input class="fs-input" type="radio" id="{{ row.alt_title }}" name="Membership" value="{{ row.title }}">
+          <label class="fs-label" for="{{ row.alt_title }}">{{ row.alt_title }}</label>
         </span>
-
-        <span class="fs-radio">
-          <input class="fs-input" type="radio" id="{{ cms.office.name }}" name="Membership" value="{{ cms.office.name }}">
-          <label class="fs-label" for="{{ cms.office.name }}">{{ cms.office.name }}</label>
-        </span>
-
-        <span class="fs-radio">
-          <input class="fs-input" type="radio" id="digital" name="Membership" value="Digital">
-          <label class="fs-label" for="digital">Digital Only</label>
-        </span>
-
-        <span class="fs-radio">
-          <input class="fs-input" type="radio" id="no-thanks" name="Membership" value="Basic">
-          <label class="fs-label" for="no-thanks">No, thanks.</label>
-        </span>
-
+        {% endfor %}
       </div>
     </fieldset>
     <input data-js="submit" class="button fs-form-submit" type="submit" value="Sumbit your answers!">

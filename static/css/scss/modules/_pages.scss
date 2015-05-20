@@ -25,11 +25,11 @@ $nav-button-size: 2.5rem;
 
 .page-close,
 .back-home {
-  
+
   // Placement
   position: fixed;
   top: 1rem;
-  
+
   // Base Structure
   color: inherit;
   background: transparent;
@@ -37,11 +37,11 @@ $nav-button-size: 2.5rem;
   width: $nav-button-size;
   border-radius: 100%;
   z-index: 1000;
-  
+
   &:before {
     font: 1.25rem $sans-font;
   }
-  
+
   &:hover,
   &:active {
     color: $primary-color;
@@ -49,7 +49,7 @@ $nav-button-size: 2.5rem;
 }
 
 .page-close {
-  right: 1rem; 
+  right: 1rem;
   &:before { content: "✕"; }
   // Repsonsive
   @include small {
@@ -67,7 +67,7 @@ $nav-button-size: 2.5rem;
   color: inherit !important;
   transition: opacity 300ms;
   filter: brightness(0.5);
-  &:before { 
+  &:before {
     content: url(../images/ui/weld-logo-medium.svg);
     @include small {
       content: url(../images/ui/weld-logo-small.svg);
