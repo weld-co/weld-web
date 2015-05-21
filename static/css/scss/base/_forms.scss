@@ -77,13 +77,15 @@ fieldset,
   width: 100%;
   max-width: 500px;
   max-height: 4.25rem;
+  min-height: 4.25rem;
   @include small {
     max-height: 8.5rem;
   }
 
   .input-group-input:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
     flex: 1;
-    box-shadow: inset 0 -4px 0 0 $middle-grey;
+    filter: drop-shadow(0 4px 0 $light-grey);
+    box-shadow: none;
     padding: 1rem;
     font-family: $sans-font;
     text-transform: uppercase;
@@ -97,7 +99,7 @@ fieldset,
     }
   }
   .input-group-button {
-    box-shadow: inset 0 -4px 0 0 $red;
+
     &:hover { transform: none; }
 
     @include large {

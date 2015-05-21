@@ -21,7 +21,7 @@ button {
   display: inline-block;
   background: $primary-color;
   border-radius: 3px;
-  box-shadow: 0 4px 0 0 $red;
+  filter: drop-shadow(0 4px 0 $red);
   padding: 1rem 2rem;
   margin-bottom: 1rem;
 
@@ -36,9 +36,28 @@ button {
   text-transform: uppercase;
 
   // Animation
-  transition: transform 200ms, height 300ms $cubic; // height is for isLoading indicator
-  &:hover { transform: translateY(-3px); }
-  &:active { transform: translateY(-1px); transition: none; }
+  transition-duration: 200ms;
+  // height transition is for isLoading indicator
+  // opacity is for the .main-cta button
+  transition:
+    transform 200ms,
+    background 200ms,
+    opacity 1250ms 400ms,
+    filter 200ms,
+    -webkit-filter 200ms,
+    height 200ms;
+
+  &:hover {
+    transform: translateY(-3px);
+    color: white;
+    background: $primary-color;
+    filter: drop-shadow(0 4px 0 $red);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    transition: none;
+  }
 
   // Space between buttons
   &.margin-right {
@@ -60,27 +79,52 @@ button {
     @extend .button;
     color: $primary-color;
     background-color: white;
-    box-shadow: 0 4px 0 0 $lightest-grey;
+    filter: drop-shadow(0 4px 0 $lightest-grey);
+  }
+
+  &-black {
+    @extend .button;
+    color: white;
+    background-color: $black;
+    filter: drop-shadow(0 4px 0 $true-black);
   }
 
   &-grey {
     @extend .button;
     color: $black;
     background-color: $lightest-grey;
-    box-shadow: 0 4px 0 0 $light-grey;
+    filter: drop-shadow(0 4px 0 $middle-grey);
   }
 
   // Outline Buttons
   &-secondary {
     @extend .button;
     background-color: transparent;
-    box-shadow: none;
-    border: 2px solid white;
+    filter: none !important;
+    box-shadow: inset 0 0 0 2px white;
 
     // Fill on hover
     &:hover {
       background-color: rgba(255,255,255,0.25);
     }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    transition: none;
+    cursor: progress;
+  }
+}
+
+.small-button {
+  width: 60px;
+  max-height: 45px;
+  padding: 1rem 0;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  @media screen and (max-width: 400px) {
+    position: initial;
   }
 }
 

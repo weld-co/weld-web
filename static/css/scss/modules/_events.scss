@@ -1,0 +1,26 @@
+.event-cover {
+  font-size: 1rem;
+  min-height: 700px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.event-when {
+  border-bottom: 1px dashed;
+  padding: 2rem 2rem;
+  margin-bottom: 5vh;
+}
+
+.event-heading {
+  font-size: 5vmax;
+  margin-bottom: 1rem;
+}
+
+.event-subhead {
+  margin-bottom: 10vh;
+}
+
+.event-description {
+  background: $lightest-grey;
+}
+

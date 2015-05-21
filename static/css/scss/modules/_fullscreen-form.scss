@@ -46,7 +46,7 @@
 }
 
 .next-button,
-.prev-button { 
+.prev-button {
   bottom: $page-padding;
   position: absolute;
   z-index: 100;
@@ -60,6 +60,7 @@
 .next-button {
   right: $page-padding;
   animation: fade-in 2s;
+  filter: none !important;
   &:before {
     content: '⌘ + Enter';
     position: absolute;
@@ -152,8 +153,8 @@
   }
 }
 
-.fs-input::-webkit-input-placeholder { 
-   color: $blue-inactive;  
+.fs-input::-webkit-input-placeholder {
+   color: $blue-inactive;
 }
 
 /*====================================================
@@ -268,7 +269,7 @@
 
 .fs-input[type="checkbox"] + .fs-label,
 .fs-input[type="radio"] + .fs-label {
-  color: $blue-inactive; 
+  color: $blue-inactive;
   font-family: $sans-font;
   font-weight: $base-font-weight;
 }

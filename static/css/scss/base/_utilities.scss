@@ -70,6 +70,14 @@
   height: 25vh;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .center {
   align-items: center;
   justify-content: center;
@@ -95,8 +103,16 @@
   text-transform: uppercase;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 .tracked {
   letter-spacing: 4px;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .serif-font {
@@ -108,7 +124,20 @@
 }
 
 .thin {
+  -webkit-font-smoothing: antialiased;
   font-weight: 100;
+}
+
+.position-r {
+  position: relative;
+}
+
+.position-a {
+  position: absolute;
+}
+
+.display-block {
+  display: block;
 }
 
 .bottom {
@@ -117,6 +146,16 @@
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.bottom-25 {
+  @extend .bottom;
+  bottom: 25px;
+}
+
+.bottom-50 {
+  @extend .bottom;
+  bottom: 50px;
 }
 
 .right {
@@ -133,6 +172,7 @@
 
 // Depth Chart
 
+.depth-0  { z-index: -1;   }
 .depth-1  { z-index: 100;  }
 .depth-2  { z-index: 200;  }
 .depth-3  { z-index: 300;  }

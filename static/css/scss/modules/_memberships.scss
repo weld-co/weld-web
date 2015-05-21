@@ -85,18 +85,6 @@
   }
 }
 
-.small-button {
-  width: 60px;
-  max-height: 45px;
-  padding: 1rem 0;
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  @media screen and (max-width: 400px) {
-    position: initial;
-  }
-}
-
 .tier-price,
 .tier-description,
 .tier-cta {

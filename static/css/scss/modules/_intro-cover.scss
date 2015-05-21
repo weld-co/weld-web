@@ -50,6 +50,7 @@ $cover-padding: 3rem;
 
 .logo {
   margin-bottom: 2rem;
+  width: 202px;
   @include small {
     width: 101px;
   }
@@ -73,7 +74,6 @@ $cover-padding: 3rem;
 
 .main-cta {
   margin-top: 4rem;
-  transition: opacity 1250ms 400ms, transform 200ms;
   @include small {
     margin-top: 1rem;
   }

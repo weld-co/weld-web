@@ -1,0 +1,49 @@
+{% extends 'templates/base.html' %}
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block content %}
+
+<a href="/" class="page-close column center"></a>
+<a href="/" class="back-home cell center reverse"></a>
+
+<section class="event-cover column center optical center full-screen text-align-center padding position-r depth-1" style="background-image: url({{ item.background.url }});">
+  <div class="overlay depth-0" style="background: {{ item.color }}; opacity: {{ item.opacity }}"></div>
+  <div class="event-when sans-font uppercase tracked">{{ item.date|date('F jS, Y – g A') }}</div>
+
+  <h1 class="event-heading thin">{{ item.title }}</h1>
+  <span class="event-subhead sans-font uppercase tracked">{{ item.subhead }}</span>
+
+  <form class="ajax-submit input-group row" action="//weld.us4.list-manage.com/subscribe/post-json?u=065b63f81851e09661ae5d9e7&amp;id={{ item.mailchimp_list }}&c=?" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <input class="input input-group-input" type="email" placeholder="count@me.in" name="EMAIL" id="mce-EMAIL" required>
+    <input class="button-black input-group-button" type="submit" value="I'm coming!" name="subscribe" id="mc-embedded-subscribe">
+  </form>
+
+  <a class="bottom-50 display-block sans-font uppercase tracked" href="{{ item.map_link }}" target="_blank">➤ At {{ item.address }}</a>
+</section>
+
+<section class="bkgd-lightest-grey row center quarter-height padding text-align-center clr-black">
+  <h2 class="thin no-margin">{{ item.description }}</h2>
+</section>
+
+
+<section class="bkgd-white row center padding text-align-center clr-black">
+  <h5 class="sans-font uppercase tracked">Sponsored by</h5>
+  <img src="{{ item.sponsors|imageSize(2000, 'auto') }}"/>
+</section>
+
+<div class="modal full-screen row center depth-10">
+  <div class="modal-message-wrap column center slideUp">
+    <div class="modal-message-headline text-align-center sans-font uppercase tracked">Yeah! Check your email to confirm.</div>
+  </div>
+  <span class="modal-background"></span>
+</div>
+
+<div class="column center half-height padding clr-black bkgd-lightest-grey">
+  <h3>Let us know if you're coming!</h3>
+  <form class="ajax-submit input-group row" action="//weld.us4.list-manage.com/subscribe/post?u=065b63f81851e09661ae5d9e7&amp;id={{ item.mailchimp_list }}" method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <input class="input input-group-input" type="email" placeholder="count@me.in" name="EMAIL" id="mce-EMAIL" required>
+    <input class="button input-group-button" type="submit" value="I'm coming!" name="subscribe" id="mc-embedded-subscribe">
+  </form>
+</div>
+
+{% endblock %}

@@ -6,6 +6,7 @@ $dark-red: #7F2311;
 $dark-blue: #46525E;
 $blue: #86A2A3;
 $yellow: #FAAA31;
+$true-black: #000000;
 $dark-black: #222222;
 $black: #302824;
 $dark-grey: #615D5C;
@@ -28,3 +29,31 @@ $page-padding: 8%;
 $border: 1px solid darken($lightest-grey, 2);
 $cubic: cubic-bezier(0.75,0,0.5,1);
 $color-transition: background 400ms, color 300ms;
+
+.clr-black {
+  color: $black;
+}
+
+.clr-accent {
+  color: $primary-color
+}
+
+.clr-white {
+  color: white;
+}
+
+.bkgd-black {
+  background-color: $black;
+}
+
+.bkgd-accent {
+  background-color: $primary-color
+}
+
+.bkgd-white {
+  background-color: white;
+}
+
+.bkgd-lightest-grey {
+  background-color: $lightest-grey;
+}

@@ -1,0 +1,26 @@
+{% extends 'templates/base.html' %}
+{% block scheme %}light{% endblock %}
+{% block title %} {{cms.events.name}}{% endblock %}
+
+{% block content %}
+  <a href="/" class="page-close column center"></a>
+  <a href="/" class="back-home cell center"></a>
+  <div class="container column center">
+    {# The first thing we do is call event data from the CMS. #}
+    {% set data = cms.events%}
+
+    {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
+    {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
+    {% set data = data|sort('publish_date', true) %}
+
+    {# This is how you set pagination. It's always important to do this after your sort. #}
+    {% set data = paginate(data, 5) %}
+
+    <h1>List of events</h1>
+
+    {# This forloop can use any data from http:localhost:2000/cms/#/form/event/ #}
+    {% for object in data %}
+      <a href="{{ url(object) }}">{{ object.name }}</a></li>
+    {% endfor %}
+  </div>
+{% endblock %}
