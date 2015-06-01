@@ -1,19 +1,28 @@
 .event-cover {
-  font-size: 1rem;
-  min-height: 700px;
+  font-size: 0.75rem;
+  min-height: 800px;
   background-size: cover;
   background-attachment: fixed;
+  @include large {
+    font-size: 1rem;
+  }
 }
 
-.event-when {
+.event-details {
+  padding: 2rem 0;
   border-bottom: 1px dashed;
-  padding: 2rem 2rem;
   margin-bottom: 5vh;
+  @include large {
+    padding: 2rem 2rem;
+  }
 }
 
 .event-heading {
-  font-size: 5vmax;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  @include large {
+    font-size: 5vmax;
+  }
 }
 
 .event-subhead {
@@ -21,6 +30,31 @@
 }
 
 .event-description {
+  font-size: 1.75rem;
+  line-height: 1.4;
   min-height: 215px;
+  padding: 5% 1rem;
+  @include small {
+    font-size: 1rem;
+  }
 }
 
+.event-description-wrap {
+  max-width: 75ch;
+}
+
+.event-sponsor-link {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.event-premier-sponsor {
+  width: auto !important;
+  @include small {
+    max-width: 90%;
+  }
+}
+
+.event-location {
+  height: 75px;
+}

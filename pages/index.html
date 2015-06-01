@@ -1,41 +1,32 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block content %}
-  <main class="intro-cover row center" data-vide-bg="mp4: /static/images/video/intro-video.mp4, poster: /static/images/video/intro-video-poster.jpg" data-vide-options="posterType: jpg">
 
-    <div class="action-links">
-      <a href="http://welderwire.co/" target="_blank">Sign In</a>
-    </div>
+<main class="intro-cover row center" data-vide-bg="mp4: /static/images/video/intro-video.mp4, poster: /static/images/video/intro-video-poster.jpg" data-vide-options="posterType: jpg">
 
-    <span class="intro-wrap center">
-      <img class="logo fade-down" src="/static/images/ui/weld-logo.svg" alt="WELD">
-      <span class="intro js-typetype" data-typetype-text="{{ cms.homepage.intro }}"></span>
-      <a href="/community" class="main-cta button-white opacity-0">{{ cms.homepage.cta }}</a>
-    </span>
+  <div class="action-links">
+    {# <a href="{{ url('blog') }}">Blog</a> #}
+    <a href="http://welderwire.co/" target="_blank" data-event="Sign In">Sign In</a>
+  </div>
 
-  </main> <!-- intro-cover -->
+  <span class="intro-wrap center">
+    <img class="logo fade-down" src="/static/images/ui/weld-logo.svg" alt="WELD">
+    <span class="intro js-typetype" data-typetype-text="{{ cms.homepage.intro }}"></span>
+    <a href="/community" class="main-cta button-white opacity-0" data-event="{{ cms.homepage.cta }}">{{ cms.homepage.cta }}</a>
+  </span>
 
-  <div class="nav column">
-  {% for row in cms.homepage.nav %}
-    <span class="nav-item cell"><a href="{{ row.link }}" class="nav-link cell center">{{ row.text }}</a></span>
+  {#
+  {% for item in cms.articles|sort('publish_date', true)|slice(0,1) %}
+  <a href="{{ url(item) }}" class="news column center">
+    <span class="faded">{{ item.author.name }} Posted a new article:</span>
+    <span>{{ item.name }}</a></span>
+  </a>
   {% endfor %}
-  </div> <!-- nav -->
+  #}
 
-  <section class="newsletter column center">
-    <h1 class="newsletter-h1">{{ cms.homepage.newlsetter_title }}</h1>
-    <h2 class="newsletter-h2">{{ cms.homepage.newsletter_description }}</h2>
-    <!-- MailChimp Signup -->
-    <form class="input-group row" action="//weld.us4.list-manage.com/subscribe/post?u=065b63f81851e09661ae5d9e7&amp;id=9e477f073c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <input class="input input-group-input" type="email" placeholder="beawesome@yourjob.com" name="EMAIL" id="mce-EMAIL" required>
-      <input class="button input-group-button" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
-    </form>
-  </section>
+</main> <!-- intro-cover -->
 
-  <footer class="footer row center">
-    <div class="footer-wrap row center">
-    {% for row in cms.footer.footer_item %}
-      <a class="footer-item cell center" href="{{ row.link }}">{{ row.text }}</a>
-    {% endfor %}
-    </div>
-  </footer> <!-- nav -->
+{% include 'templates/partials/homepage-nav.html' %}
+{% include 'templates/partials/newsletter.html' %}
+{% include 'templates/partials/footer.html' %}
 
 {% endblock %}

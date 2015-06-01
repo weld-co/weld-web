@@ -1,6 +1,7 @@
+/*====================================================
+    WYSIWYG Editor Output Styles
+====================================================*/
+
 .wysiwyg {
-  margin-bottom: 2rem;
-  p a {
-    color: $primary-color
-  }
+  a { @extend .link; }
 }

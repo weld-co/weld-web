@@ -1,12 +1,9 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block title %}Membership Types{% endblock %}
 
 {% block content %}
-<a href="/" class="page-close cell center reverse"></a>
-<a href="/" class="back-home cell center reverse"></a>
-
 <section class="memberships column center">
-<a class="announcement row center" href="/digital">We now offer a Digital Membership for $60 a month! <span class="important"> Learn More.</span></a>
+<a class="announcement row center" href="/digital" data-event="Memberships Page - Digital">We now offer a Digital Membership for $60 a month! <span class="important"> Learn More.</span></a>
   <div class="membership-wrap row">
     <span class="tier column center">
       <h1 class="tier-title-primary">WELD Membership</h1>
@@ -17,18 +14,18 @@
   <div class="addons-wrap row">
     <span class="tier column">
       <h2 class="tier-title">{{ cms.memberships.type[0].title }}</h2>
-      <span data-js="desk-toggle" class="small-button button-grey add"></span>
+      <span data-js="desk-toggle" class="small-button button-grey add" data-event="Memberships Page - {{ cms.memberships.type[0].title }}"></span>
       <p class="tier-price">+ $<span class="desk-cost">{{ cms.memberships.type[0].price }}</span>/mo</p>
       <p class="tier-description">{{ cms.memberships.type[0].description }}</p>
     </span>
     <span class="tier column">
       <h2 class="tier-title">{{ cms.memberships.type[1].title }}</h2>
-      <span data-js="office-toggle" class="small-button button-grey add"></span>
+      <span data-js="office-toggle" class="small-button button-grey add" data-event="Memberships Page - {{ cms.memberships.type[1].title }}"></span>
       <p class="tier-price">Starting at + $<span class="office-cost">{{ cms.memberships.type[1].price }}</span>/mo</p>
       <p class="tier-description">{{ cms.memberships.type[1].description }}</p>
     </span>
   </div>
-  <a data-js="button-text" class="button slide-up" href="/apply">Apply For Membership</a>
-  <a class="other-options row center" href="/contact">Need a bit more room? <span class="important">Ask us about larger office space.</span></a>
+  <a data-js="button-text" class="button slide-up" href="/apply" data-event="Memberships Page - Apply For Membership">Apply For Membership</a>
+  <a class="other-options row center" href="/contact" data-event="Memberships Page - Contact">Need a bit more room? <span class="important">Ask us about larger office space.</span></a>
 </section>
 {% endblock %}

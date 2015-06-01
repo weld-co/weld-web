@@ -1,0 +1,18 @@
+/*====================================================
+    Background Color Themes
+====================================================*/
+
+.dark {
+  background: $black;
+  color: #fff;
+}
+
+.light {
+  background: $lightest-grey;
+  color: $black;
+}
+
+.orange {
+  background: $primary-color;
+  color: white;
+}

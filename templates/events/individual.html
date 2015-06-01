@@ -1,16 +1,14 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block title %}{{ item.name }}{% endblock %}
 
 {% block content %}
 
-<a href="/" class="page-close column center"></a>
-<a href="/" class="back-home cell center reverse"></a>
+<header class="event-cover column center full-screen text-align-center padding position-r depth-1" style="background-image: url({{ item.background.url }});">
+<span class="overlay depth-0" style="background: {{ item.overlay_color }}; opacity: {{ item.opacity }}"></span>
 
-<section class="event-cover column center full-screen text-align-center padding position-r depth-1" style="background-image: url({{ item.background.url }});">
-<div class="overlay depth-0" style="background: {{ item.color }}; opacity: {{ item.opacity }}"></div>
+  <div class="column center-lr">
 
-  <div class="column center optical-center">
-    <div class="event-when sans-font uppercase tracked">{{ item.date|date('F jS, Y – g A') }}</div>
+    <span class="event-details sans-font uppercase tracked">{{ item.start|date('F jS, Y – g A') }}</span>
 
     <h1 class="event-heading thin">{{ item.title }}</h1>
     <span class="event-subhead sans-font uppercase tracked">{{ item.subhead }}</span>
@@ -21,13 +19,30 @@
     </form>
   </div>
 
-  <a class="bottom-50 display-block sans-font uppercase tracked" href="{{ item.map_link }}" target="_blank">➤ At {{ item.address }}</a>
+  {% if item.premier_sponsors %}
+  <div class="event-top-sponsors">
+  <h5 class="sans-font uppercase tracked">Premier Sponsors</h5>
+    <div class="row center">
+      {% for row in item.premier_sponsors %}
+      <a class="event-sponsor-link" href="{{ row.link }}" target="_blank">
+        <img class="event-premier-sponsor" src="{{ row.logo.url }}"/>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</header>
+
+<section class="event-location row center text-align-center" style="background: {{ item.secondary_color }}">
+  <a class="sans-font uppercase tracked" href="{{ item.map_link }}" target="_blank">At {{ item.address }}</a>
 </section>
 
-<section class="event-description bkgd-lightest-grey row center quarter-height padding text-align-center clr-black">
-  <h2 class="thin no-margin">{{ item.description }}</h2>
+{% if item.description %}
+<section class="event-description wysiwyg bkgd-lightest-grey row center text-align-center clr-black">
+  <span class="event-description-wrap serif-font thin no-margin">{{ item.description|safe }}</span>
 </section>
-
+{% endif %}
 
 <section class="bkgd-white row center padding text-align-center clr-black">
   <h5 class="sans-font uppercase tracked">Sponsored by</h5>
@@ -37,12 +52,26 @@
 <div class="modal full-screen row center depth-10">
   <div class="modal-message-wrap column center slideUp">
     <div class="modal-message-headline text-align-center sans-font uppercase tracked">Yeah! Check your email to confirm.</div>
+
+    <span class="addtocalendar atc-style-weld" data-calendars="Google Calendar, iCalendar, Outlook, Outlook Online, Yahoo! Calendar" data-event="Add To Calendar">
+      <var class="atc_event">
+        <var class="atc_date_start">{{ item.start|date('Y-m-d H:i:s') }}</var>
+        <var class="atc_date_end">{{ item.end|date('Y-m-d H:i:s') }}</var>
+        <var class="atc_timezone">America/Mexico_City</var>
+        <var class="atc_title">{{ item.title }}</var>
+        <var class="atc_description">{{ item.description }}</var>
+        <var class="atc_location">{{ item.address }}</var>
+        <var class="atc_organizer">WELD</var>
+        <var class="atc_organizer_email">hello@weld.co</var>
+      </var>
+    </span>
+
   </div>
   <span class="modal-background"></span>
 </div>
 
-<div class="column center half-height padding clr-black bkgd-lightest-grey">
-  <h3>Let us know if you're coming!</h3>
+<div class="column center padding clr-black bkgd-lightest-grey">
+  <h3>Let us know if you’re coming!</h3>
   <form class="ajax-submit input-group row" action="//weld.us4.list-manage.com/subscribe/post?u=065b63f81851e09661ae5d9e7&amp;id={{ item.mailchimp_list }}" method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <input class="input input-group-input" type="email" placeholder="count@me.in" name="EMAIL" id="mce-EMAIL" required>
     <input class="button input-group-button" type="submit" value="I'm coming!" name="subscribe" id="mc-embedded-subscribe">

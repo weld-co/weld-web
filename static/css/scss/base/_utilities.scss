@@ -1,3 +1,7 @@
+$page-padding: 5vw;
+$padding: 2em;
+$margin: 2em;
+
 .desktop-only {
   @include small {
     display: none !important;
@@ -18,12 +22,20 @@
   display: none;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 [hidden] {
   display: none;
 }
 
 .opacity-0 {
   opacity: 0;
+}
+
+.faded {
+  opacity: 0.5;
 }
 
 .opacity-1 {
@@ -49,25 +61,107 @@
   padding: $page-padding;
 }
 
+.padding-tb {
+  padding: $page-padding 0;
+}
+
+.padding-lr {
+  padding: 0 $page-padding;
+}
+
+/*====================================================
+    Sizes
+====================================================*/
+
 .full-screen {
   height: 100vh;
   width: 100vw;
 }
 
-.full-width {
-  width: 100%;
+.three-qtr-vh {
+  height: 75vh;
 }
 
-.full-height {
-  height: 100vh;
-}
-
-.half-height {
+.half-vh {
   height: 50vh;
 }
 
-.quarter-height {
+.qtr-vh {
   height: 25vh;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.three-qtr-w {
+  width: 75%;
+  @include small {
+    min-width: 100%;
+  }
+}
+
+.half-w {
+  width: 50%;
+  @include small {
+    min-width: 100%;
+  }
+}
+
+// offest other side of half/half
+.right-half {
+  margin-left: 50%;
+  @include small {
+    margin-left: 0;
+    min-width: 100%;
+  }
+}
+
+.third-w {
+  width: 34%;
+  @include small {
+    min-width: 100%;
+  }
+}
+
+.qtr-w {
+  width: 25%;
+  @include small {
+    min-width: 100%;
+  }
+}
+
+// offest other side of third
+.right-third {
+  margin-left: 34%;
+  @include small {
+    margin-left: 0;
+    min-width: 100%;
+  }
+}
+
+.right-three-qtr {
+  margin-left: 25%;
+  @include small {
+    margin-left: 0;
+    min-width: 100%;
+  }
+}
+
+.full-h {
+  height: 100%;
+}
+
+.half-h {
+  height: 50%;
+}
+
+.three-qtr-h {
+  height: 75%;
+}
+
+.qtr-h {
+  height: 25%;
 }
 
 .overlay {
@@ -78,16 +172,27 @@
   left: 0;
 }
 
+.right {
+  justify-content: flex-end;
+}
+
+.justified {
+  justify-content: space-around;
+}
+
 .center {
   align-items: center;
   justify-content: center;
 }
 
-.vertical-center {
+// Vertical & Horizontal Alignment reverses for Rows & Columns
+.column.center-tb,
+.row.center-lr {
   justify-content: center;
 }
 
-.horizontal-center {
+.column.center-lr,
+.row.center-tb {
   align-items: center;
 }
 
@@ -99,12 +204,88 @@
   text-align: center;
 }
 
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.border-t {
+  border-top: 1px solid $light-grey;
+}
+
+.border-r {
+  border-right: 1px solid $light-grey;
+}
+
+.border-b {
+  border-bottom: 1px solid $light-grey;
+}
+
+.border-l {
+  border-left: 1px solid $light-grey;
+}
+
+.rounded {
+  border-radius: 3px;
+}
+
 .no-margin {
   margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.margin-t {
+  margin-top: $margin;
+}
+
+.margin-r {
+  margin-right: $margin;
+}
+
+.margin-b {
+  margin-bottom: $margin;
+}
+
+.margin-l {
+  margin-left: $margin;
+}
+
+.padding-t {
+  padding-top: $padding;
+}
+
+.padding-r {
+  padding-right: $padding;
+}
+
+.padding-b {
+  padding-bottom: $padding;
+}
+
+.padding-l {
+  padding-left: $padding;
+}
+
+.list-style-none {
+  list-style: none;
 }
 
 .tracked {
@@ -136,8 +317,22 @@
   position: absolute;
 }
 
+.position-f {
+  position: fixed;
+}
+
 .display-block {
   display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+// For wysiwyg generated content with p tags all over the place
+
+.p-inline p {
+  display: inline;
 }
 
 .bottom {
@@ -158,16 +353,92 @@
   bottom: 50px;
 }
 
-.right {
-  justify-content: flex-end;
+/*====================================================
+    Background/Image Size & Position
+====================================================*/
+
+.bkgd-no-repeat {
+  background-repeat: no-repeat;
 }
 
-.justified {
-  justify-content: space-around;
+.bkgd-cover {
+  background-size: cover;
+}
+
+.bkgd-contain {
+  background-size: contain;
+}
+
+.bkgd-center {
+  background-position: center;
+}
+
+.bkgd-top {
+  background-position: top;
+}
+
+.bkgd-right {
+  background-position: right;
+}
+
+.bkgd-bottom {
+  background-position: bottom;
+}
+
+.bkgd-left {
+  background-position: left;
 }
 
 .cover {
   object-fit: cover;
+}
+
+/*====================================================
+    Colors
+====================================================*/
+
+.clr-black {
+  color: $black;
+}
+
+.clr-grey {
+  color: $grey;
+}
+
+.clr-accent {
+  color: $primary-color
+}
+
+.clr-white {
+  color: $white;
+}
+
+.bkgd-black {
+  background-color: $black;
+  color: $white;
+}
+
+.bkgd-trans-black {
+  background-color: fade-out($black, 0.25);
+}
+
+.bkgd-accent {
+  background-color: $primary-color;
+  color: $white;
+}
+
+.bkgd-white {
+  background-color: $white;
+  color: $black;
+}
+
+.bkgd-lightest-grey {
+  background-color: $lightest-grey;
+  color: $black;
+}
+
+.bkgd-gradient {
+  background: $bkgd-gradient;
 }
 
 // Depth Chart

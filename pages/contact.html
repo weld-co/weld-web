@@ -1,17 +1,15 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block scheme %}light{% endblock %}
 {% block title %}{{ cms.contact.name }}{% endblock %}
 
 {% block content %}
-<a href="/" class="page-close column center"></a>
-<a href="/" class="back-home cell center"></a>
 
 <div class="container">
-    
+
   <section class="form-intro">
-    <h1 class="h1-large">{{ cms.contact.headline }}</h1> 
+    <h1 class="h1-large">{{ cms.contact.headline }}</h1>
     <h6>{{ cms.contact.subhead }}</h6>
-    <a href="http://weld.readme.io" class="button book-icon" target="_blank">{{ cms.contact.cta }}</a>
+    <a href="http://learn.weld.co" class="button book-icon" target="_blank" data-event="Contact Page - Knowledge Base">{{ cms.contact.cta }}</a>
   </section>
 
   <form class="form" accept-charset="UTF-8" action="http://formspree.io/admin@weld.co" method="POST">

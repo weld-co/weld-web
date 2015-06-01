@@ -1,0 +1,34 @@
+{% extends 'templates/partials/base.html' %}
+{% block scheme %}light{% endblock %}
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+  <div class="container column">
+    {# The first thing we do is call blog data from the CMS. #}
+    {% set data = cms.articles %}
+
+    {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
+    {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
+    {% set data = data|sort('publish_date', true) %}
+
+    {# This is how you set pagination. It's always important to do this after your sort. #}
+    {# {% set data = paginate(data, 5) %} #}
+
+    <h1 class="text-align-center">The WELD Blog</h1>
+
+    {# This forloop can use any data from http:localhost:2000/cms/#/form/blog/ #}
+    <ul class="no-margin no-padding">
+      {% for object in data %}
+      <li class="list-style-none bkgd-cover bkgd-center bkgd-no-repeat clr-white rounded overflow-hidden margin-b position-r depth-1" style="background-image: url( {{ object.featured_image.url}} )">
+        <a class="column center text-align-center padding" href="{{ url(object) }}">
+          <img class="avatar no-margin margin-b" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">
+          <h1>{{ object.name }}</h1>
+          <p>{{ object.intro }}</p>
+        </a>
+        <span class="overlay bkgd-trans-black depth-0" style="background-color: {{ object.color }}; opacity: {{ object.opacity }};"></span>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endblock %}

@@ -1,16 +1,14 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block scheme %}orange{% endblock %}
-{% block content %}
 
+{% block content %}
   <main class="column full-screen center padding">
   <section class="column center optical-center">
     <img class="logo" src="/static/images/ui/weld-logo.svg" alt="WELD">
     <h3 class="splash-message text-align-center">
       We’ve got a brand new site on the way. Check back in a couple of days.
     </h3>
-    <a class="bottom row center text-align-center quarter-height" href="mailto:hello@weld.co">In the meantime, you can contact us at hello@weld.co</a>
+    <a class="bottom row center text-align-center qtr-vh" href="mailto:hello@weld.co">In the meantime, you can contact us at hello@weld.co</a>
   </section>
-    
   </main>
-
 {% endblock %}

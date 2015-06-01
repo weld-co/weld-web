@@ -1,0 +1,80 @@
+/*====================================================
+    Primary Nav
+====================================================*/
+
+$nav-height: 15vh;
+
+.nav {
+  user-select: none;
+  // background matches border color cause of small visual bugs
+  background: darken($lightest-grey, 2);
+  @include large {
+    flex-direction: row;
+    height: $nav-height;
+  }
+}
+
+.nav-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  background: linear-gradient(to bottom left, white, $lightest-grey);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  &:not(:last-child) {
+    border-right: 1px solid darken($lightest-grey, 2);
+  }
+
+  @include small {
+    min-height: $nav-height;
+  }
+}
+
+
+.nav-link {
+  padding: 0 1rem;
+  color: $black;
+  font: 500 0.75rem $sans-font;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: $nav-height;
+  @include large {
+    &:hover, &:active {
+      color: white;
+      background: darken($primary-color, 3);
+    }
+  }
+}
+
+// .ink styles - the elements which will create the ripple effect.
+// The size and position of these elements will be set by the JS code.
+// Initially these elements will be scaled down to 0% and later
+// animated to large fading circles on user click.
+
+.ink {
+  display: block;
+  position: absolute;
+  background: fade-out($primary-color, 0.875);
+  filter: blur(15px);
+  border-radius: 100%;
+  transform: scale(0);
+  @include large {
+    background: rgba(255,255,255,0.2);
+  }
+}
+
+// scale the element to 250% to safely cover the entire link and fade it out
+.ink.animate {
+  animation: ripple 300ms ease-in-out;
+}
+
+@-webkit-keyframes ripple {
+  100% {opacity: 0; transform: scale(2.5);}
+}
+
+@keyframes ripple {
+  100% {opacity: 0; transform: scale(2.5);}
+}

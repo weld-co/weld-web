@@ -1,0 +1,64 @@
+{% extends 'templates/partials/base.html' %}
+{% block scheme %}light{% endblock %}
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block content %}
+
+<article class="row">
+  <header class="article-header position-f bkgd-cover bkgd-no-repeat clr-white column half-w full-h center-tb padding depth-1" style="background-image: url({{ item.featured_image.url }}); background-position: {{ item.image_alignment }};">
+    <a class="article-list-link position-a" href="{{ url('articles') }}">← All Articles</a>
+    <span class="article-date full-w margin-b clr-black">{{ item.publish_date|date('F d Y') }}</span>
+    <h1 class="article-headline ">{{ item.name }}</h1>
+
+    <a class="article-details row uppercase tracked" href=" {{ item.author.link }}" target="_blank">
+      <img class="avatar" src="{{ item.author.avatar.url }}"/>
+      <span class="row center-tb">by {{ item.author.name }} {{ item.author.last_name }}</span>
+    </a>
+
+    {% set next = nextItem(item, 'publish_date') %}
+    {% set prev = prevItem(item, 'publish_date') %}
+
+    {% if next %}
+      <a href="{{ url(next) }}" class="next-item depth-10">
+        <div class="item-head">Next</div>
+        <div class="item-name">{{ next.name }}</div>
+      </a>
+    {% endif %}
+
+    {% if prev %}
+      <a href="{{ url(prev) }}" class="prev-item depth-10">
+        <div class="item-head">Previous</div>
+        <div class="item-name">{{ prev.name }}</div>
+      </a>
+    {% endif %}
+    <span class="bkgd-gradient overlay depth-0" style="background: {{ item.color }}; opacity: {{ item.opacity }};"></span>
+  </header>
+
+  <div class="bkgd-white column right-half serif-font" data-js="video-container">
+
+    {# Intro #}
+    <h2 class="article-intro thin no-margin bkgd-lightest-grey column padding">{{ item.intro }}</h2>
+
+    {# Sharing Buttons #}
+    {% include 'templates/partials/sharing-buttons.html' %}
+
+    {# Body #}
+    <div class="article-content sans-font">{{ item.body|safe }}</div>
+
+    {# Sharing Buttons #}
+    {% include 'templates/partials/sharing-buttons.html' %}
+
+    {# CTA #}
+    {% if item.cta %}
+    <div class="wysiwyg h3 padding no-margin p-inline">{{ item.cta|safe }} - {{ item.author.name }}</div>
+    {% endif %}
+
+    {# Footer #}
+    <div class="article-footer row bkgd-lightest-grey padding">
+      {% include 'templates/partials/notified.html' %}
+    </div>
+
+  </div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<header>
+  <nav>
+    <ul class="name">
+      <li class="circle"><a href="/">{{ cms.aboutme.initials }}</a></li>
+      <li><a href="/">{{ cms.aboutme.name }}</a></li>
+      {% if cms.aboutme.twitter %}
+        <li><a href="http://www.twitter.com/{{ cms.twitter.name }}">@{{ cms.aboutme.twitter }}</a></li>
+      {% endif %}
+    </ul>
+    <ul class="menu">
+      <li><a href="/aboutme/">About</a></li>
+      {% if cms.article|size > 0 %}
+        <li><a href="/article/">Blog</a></li>
+      {% endif %}
+      {% if cms.gallery|size > 0 %}
+        <li><a href="/gallery/">Photos</a></li>
+      {% endif %}
+      {% if cms.video|size > 0 %}
+        <li><a href="/video/">Video</a></li>
+      {% endif %}
+      {% if cms.link|size > 0 %}
+        <li><a href="/link/">Links</a></li>
+      {% endif %}
+      <li class="search-icon"><a class="fa fa-search"></a></li>
+      <li class="search-form">
+        <form action="/search-results/" method="get" data-search-index="false">
+           <input type="text" name="q" placeholder="Search" id="tipue_search_input" />
+        </form>
+      </li>
+    </ul>
+    <div class="ham">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>

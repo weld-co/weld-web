@@ -1,80 +1,49 @@
 /*====================================================
-    Primary Nav
+    Basic Nav Elements
 ====================================================*/
 
-$nav-height: 15vh;
+$nav-button-size: 2.5rem;
 
-.nav {
-  user-select: none;
-  // background matches border color cause of small visual bugs
-  background: darken($lightest-grey, 2);
-  @include large {
-    flex-direction: row;
-    height: $nav-height;
-  }
-}
+.page-close,
+.back-home {
+  position: fixed;
+  top: 1rem;
 
-.nav-item {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
-  background: linear-gradient(to bottom left, white, $lightest-grey);
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  &:not(:last-child) {
-    border-right: 1px solid darken($lightest-grey, 2);
-  }
-
-  @include small {
-    min-height: $nav-height;
-  }
-}
-
-
-.nav-link {
-  padding: 0 1rem;
-  color: $black;
-  font: 500 0.75rem $sans-font;
-  letter-spacing: 2px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-  height: $nav-height;
-  @include large {
-    &:hover, &:active {
-      color: white;
-      background: darken($primary-color, 3);
-    }
-  }
-}
-
-// .ink styles - the elements which will create the ripple effect. 
-// The size and position of these elements will be set by the JS code. 
-// Initially these elements will be scaled down to 0% and later 
-// animated to large fading circles on user click.
-
-.ink {
-  display: block;
-  position: absolute;
-  background: fade-out($primary-color, 0.875);
-  filter: blur(15px);
+  color: inherit;
+  font: 1.25rem $sans-font;
+  background: transparent;
+  height: $nav-button-size;
+  width: $nav-button-size;
   border-radius: 100%;
-  transform: scale(0);
-  @include large { 
-    background: rgba(255,255,255,0.2);
+  z-index: 1000;
+}
+
+
+.page-close {
+  right: 1rem;
+  @include small {
+    background: fade-out($primary-color, 0.25);
+    color: white !important;
   }
+  &:hover,
+  &:active { color: $primary-color; }
 }
 
-// scale the element to 250% to safely cover the entire link and fade it out
-.ink.animate { 
-  animation: ripple 300ms ease-in-out;
+.back-home {
+  left: 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.2;
+  transition: opacity 300ms;
+  &:hover { opacity: 1; }
 }
 
-@-webkit-keyframes ripple {
-  100% {opacity: 0; transform: scale(2.5);}
+.home-logo-icon {
+  background: url(../images/ui/weld-logo-medium.svg) no-repeat center;
+  height: 100%;
+  width: 100%;
+  transition: filter 300ms;
 }
 
-@keyframes ripple {
-  100% {opacity: 0; transform: scale(2.5);}
-}
+.light .home-logo-icon { filter: brightness(0.5); }

@@ -1,0 +1,260 @@
+.article-header {
+  min-height: 500px;
+  @include small {
+    position: relative;
+    height: 90vh;
+  }
+}
+
+.article-list-link {
+  top: $page-padding;
+  opacity: 0.5;
+  font-size: 0.875rem;
+  transition: opacity 300ms;
+  &:hover { opacity: 1; }
+  @include small {
+    top: 75px;
+    font-size: 0.75rem;
+  }
+}
+
+.article-headline {
+  font-size: 4vw;
+  line-height: 1;
+  @include small {
+    font-size: 2rem;
+  }
+}
+
+.article-intro-wrap {
+  background: $lightest-grey;
+}
+
+.article-intro {
+  font-size: 2vmax;
+  line-height: 1.2;
+  @include small {
+    font-size: 1rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 1em;
+}
+
+.article-details {
+  flex-grow: 0;
+}
+
+.article-date {
+  font-weight: 500;
+}
+
+/*====================================================
+    .article-content wraps all following styles
+====================================================*/
+
+.article-content {
+  line-height: 1.7;
+  padding: 5vw;
+
+/*====================================================
+    First paragraph of body content
+====================================================*/
+
+> p:first-child {
+  font-size: 135%;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+> p:first-child:first-line {
+  color: $primary-color;
+}
+
+/*====================================================
+    Last paragraph of body content
+====================================================*/
+
+> p:last-child:after {
+  content: '✍';
+  color: $primary-color;
+  font-size: 1.5rem;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+/*====================================================
+    Blockquotes
+====================================================*/
+
+figure[data-type="quote"] {
+  margin: 2rem 0;
+  border-left: 5px solid $primary-color;
+}
+
+blockquote {
+  color: $primary-color;
+  font: italic 500 125%/1.5 $slab-font;
+  padding-left: 1rem;
+}
+
+/*====================================================
+   Links
+====================================================*/
+
+a {
+  @extend .link;
+}
+
+[data-type="image"] > a {
+  cursor: zoom-in;
+  &:after {
+    display: none;
+  }
+}
+
+
+/*====================================================
+  Embedded Media
+====================================================*/
+
+img, iframe {
+  // Fill width of article-content
+  width: calc(100% + 10vw);
+  margin-left: -5vw;
+  margin-top: 3vw;
+}
+
+figure {
+  margin-bottom: 2rem;
+}
+
+figcaption {
+  font: 300 12px/1.4 $sans-font;
+  color: $grey;
+}
+
+} // .article-content
+
+/*====================================================
+    Next/Prev Buttons
+====================================================*/
+
+.next-item,
+.prev-item {
+  position: absolute;
+  bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 15px;
+  width: 50%;
+  overflow: hidden;
+  background: $black;
+  color: $white;
+  opacity: 0.5;
+  transition: opacity 300ms;
+
+  .item-head {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: $grey;
+  }
+
+  .item-name {
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    // Imp. needed for adjacent button opacity
+    // to not override hover effect
+    opacity: 1 !important;
+  }
+
+  &:before {
+    font-size: 16px;
+    margin-top: 7px;
+    position: absolute;
+    color: $grey;
+  }
+}
+
+.next-item {
+  right: 0;
+  padding-right: 40px;
+  padding-left: 25px;
+  &:before {
+    content: url(/static/images/ui/right-icon-small.svg);
+    right: 15px;
+  }
+
+  + .prev-item {
+    opacity: 0.6;
+  }
+}
+
+.prev-item {
+  left: 0;
+  padding-right: 25px;
+  padding-left: 40px;
+  &:before {
+    content: url(/static/images/ui/left-icon-small.svg);
+    left: 15px;
+  }
+}
+
+/*====================================================
+    Sharing Buttons
+====================================================*/
+
+.sharing-buttons {
+  height: 2rem;
+  filter: saturate(0);
+  transition-duration: 300ms;
+  transition-property: filter, -webkit-filter, opacity;
+  opacity: 0.5;
+  &:hover,
+  &:active {
+    opacity: 1;
+    filter: saturate(1);
+  }
+  @include small {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.sharing-button {
+  &:hover,
+  &:active {
+    .sharing-button-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.sharing-button-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.2;
+  transition: opacity 400ms ease-out;
+}
+
+.sharing-button-facebook {
+  background-color: #3b5998;
+}
+
+.sharing-button-twitter {
+  background-color: #55acee;
+}
+
+.sharing-button-pinterest {
+  background-color: #cc2127;
+}

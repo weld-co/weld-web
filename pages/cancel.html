@@ -1,15 +1,12 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block scheme %}light{% endblock %}
 {% block title %}Cancel/Change of Memberships Request{% endblock %}
 
 {% block content %}
-<a href="/" class="page-close column center"></a>
-<a href="/" class="back-home cell center"></a>
-
 <div class="container">
-    
+
   <section class="form-intro">
-    <h1>Cancel or change your membership.</h1> 
+    <h1>Cancel or change your membership.</h1>
   </section>
 
   <form class="form" accept-charset="UTF-8" action="http://formspree.io/admin@weld.co" method="POST">

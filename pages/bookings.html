@@ -1,19 +1,15 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block scheme %}light{% endblock %}
 {% block title %}Event and Studio {{ cms.bookings.name }}{% endblock %}
 
 {% block content %}
-
-<a href="/" class="page-close cell center"></a>
-<a href="/" class="back-home cell center"></a>
-
 <div class="container">
-    
+
   <section class="form-intro">
-    <h1 class="h1-large">{{ cms.bookings.headline }}</h1> 
+    <h1 class="h1-large">{{ cms.bookings.headline }}</h1>
     <h6>{{ cms.bookings.subhead }}</h6>
-    <a href="{{ cms.bookings.dallas_pdf.url }}" class="button download margin-right" target="_blank">Dallas Event Info</a>
-    <a href="{{ cms.bookings.nashville_pdf.url }}" class="button download" target="_blank">Nashville Event Info</a>
+    <a href="{{ cms.bookings.dallas_pdf.url }}" class="button download margin-right" target="_blank" data-event="Bookings Page - Dallas Info">Dallas Event Info</a>
+    <a href="{{ cms.bookings.nashville_pdf.url }}" class="button download" target="_blank" data-event="Bookings Page - Nashville Info">Nashville Event Info</a>
   </section>
 
   <form class="form" accept-charset="UTF-8" action="https://formkeep.com/f/cc2deda9b6bc" method="POST">
@@ -74,7 +70,7 @@
       <label class="label" for="number">Estimated Number in Attendance</label>
       <input class="input" type="number" name="attending" id="number" required>
     </fieldset>
-   
+
     <fieldset class="fieldset">
       <label class="label" for="description">Brief description of event</label>
       <textarea class="textarea" name="Description" id="description" autocorrect="on" autocapitalize="on"></textarea>
@@ -84,7 +80,7 @@
       <label class="label" for="referral">Did a friend refer you to WELD? If so, who?</label>
       <input class="input" type="text" name="Referral" id="referral" autocorrect="off" autocapitalize="on">
     </div>
-    
+
     <label class="label">Additional Amenities</label>
 
     <fieldset class="dallas-amenities fieldset fieldset-group stacked">
@@ -182,7 +178,7 @@
     <input class="button" type="submit" value="Submit">
 
   </form>
-  <a class="notification" href="http://weld.readme.io/" target="_blank">{{ cms.bookings.cta }}</a>
+  <a class="notification" href="http://weld.readme.io/" target="_blank" data-event="Bookings Page - Knowledge Base">{{ cms.bookings.cta }}</a>
 </div>
 
 {% endblock %}

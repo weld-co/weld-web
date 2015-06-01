@@ -23,6 +23,9 @@ $cover-padding: 3rem;
   position: absolute;
   top: $cover-padding;
   right: $cover-padding;
+  a:not(:last-child) {
+    margin-right: 1rem;
+  }
   @include small {
     top: 2rem;
     right: 2rem;

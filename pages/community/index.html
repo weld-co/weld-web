@@ -1,11 +1,8 @@
-{% extends 'templates/base.html' %}
+{% extends 'templates/partials/base.html' %}
 {% block scheme %}light{% endblock %}
 {% block title %}Meet Our Community{% endblock %}
 
 {% block content %}
-
-<a href="/" class="page-close column center"></a>
-<a href="/" class="back-home cell center"></a>
 
 <section class="community-wrap">
   <header class="community-header column center down-arrow depth-8">
@@ -14,7 +11,7 @@
     <h3 class="community-h3">Meet just a few of our people, many more coming soon!</h3>
   </header>
   <div data-infinite-container><!-- content from community.js --></div>
-  <div class="load-more row center full-width depth-9" data-load-more>Meet More WELDERS</div>
+  <div class="load-more row center full-w depth-9" data-event="Community Page - Load More" data-load-more>Meet More WELDERS</div>
 </section>
 
 <span class="modal full-screen padding row center depth-10">
@@ -28,9 +25,9 @@
   <span class="modal-background"></span>
 </span>
 
-<footer class="column center half-height padding">
+<footer class="column center padding">
   <h1 class="community-h2">Want to join our community?</h1>
-  <a href="/apply" class="button">Apply Now</a>
+  <a href="/apply" class="button" data-event="Community Page - Apply Now">Apply Now</a>
 </footer>
 
 {% endblock %}

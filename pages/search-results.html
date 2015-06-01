@@ -1,0 +1,51 @@
+{# ------------------------------------------------------- #}
+
+{# SEARCH RESULTS #}
+
+{# Webhook provides built in JS powerd search based upon your build directory #}
+{# The input form is in templates/partials/base.html #}
+{# This page outputs the actual results. #}
+
+{# DOCUMENTATION #}
+{# http://www.webhook.com/docs/search/ #}
+
+{# BASED ON TIPUE SEARCH #}
+{# This search is based on Tipue Search, which is MIT OS software. #}
+{# https://github.com/Tipue/Tipue-Search #}
+
+{# ------------------------------------------------------- #}
+{% extends "templates/partials/base.html" %}
+
+{% block body_attributes %}data-search-index="false"{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    {# SEARCH RESULTS WILL GO IN HERE. #}
+
+    <div id="tipue_search_content"></div>
+  </div>
+
+{% endblock %}
+
+{% block scripts_extra %}
+    {# DO NOT MINIFY THIS FILE #}
+    <script src="/.wh/searchjson.js"></script>
+    <script src="http://cms.webhook.com/cdn/js/webhook-tipue.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+       $(document).on('tipue_search_started', function() {
+          $('.search-form').addClass('active');
+       }); 
+
+       $('#tipue_search_input').tipuesearch({
+          highlightEveryTerm: true,
+          descriptiveWords: 100
+       });
+    });
+    </script>
+{% endblock %}
+
+
+
