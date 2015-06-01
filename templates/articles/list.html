@@ -17,15 +17,16 @@
     <h1 class="text-align-center">The WELD Blog</h1>
 
     {# This forloop can use any data from http:localhost:2000/cms/#/form/blog/ #}
+    {# TODO: Finish converting blog posts and remove slice limit below #}
     <ul class="no-margin no-padding">
-      {% for object in data %}
-      <li class="list-style-none bkgd-cover bkgd-center bkgd-no-repeat clr-white rounded overflow-hidden margin-b position-r depth-1" style="background-image: url( {{ object.featured_image.url}} )">
-        <a class="column center text-align-center padding" href="{{ url(object) }}">
-          <img class="avatar no-margin margin-b" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">
+      {% for object in data|slice(0,7) %}
+      <li class="list-style-none bkgd-cover bkgd-center bkgd-no-repeat clr-white rounded overflow-hidden margin-b position-r depth-1" style="background-image: url( {{ object.cover_image.url}} )">
+        <a class="column padding" href="{{ url(object) }}">
+          {% if object.author %}<img class="avatar no-margin margin-b" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">{% endif %}
           <h1>{{ object.name }}</h1>
-          <p>{{ object.intro }}</p>
+          <p>{{ object.intro|striptags }}</p>
         </a>
-        <span class="overlay bkgd-trans-black depth-0" style="background-color: {{ object.color }}; opacity: {{ object.opacity }};"></span>
+        <span class="overlay bkgd-trans-black depth-0" style="background-color: {{ object.overlay }}; opacity: {{ object.opacity }};"></span>
       </li>
       {% endfor %}
     </ul>

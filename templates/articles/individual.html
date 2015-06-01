@@ -5,15 +5,17 @@
 {% block content %}
 
 <article class="row">
-  <header class="article-header position-f bkgd-cover bkgd-no-repeat clr-white column half-w full-h center-tb padding depth-1" style="background-image: url({{ item.featured_image.url }}); background-position: {{ item.image_alignment }};">
+  <header class="article-header position-f bkgd-cover bkgd-no-repeat clr-white column half-w full-h center-tb padding depth-1" style="background-image: url({{ item.cover_image.url }}); background-position: {{ item.image_alignment }};">
     <a class="article-list-link position-a" href="{{ url('articles') }}">← All Articles</a>
-    <span class="article-date full-w margin-b clr-black">{{ item.publish_date|date('F d Y') }}</span>
+    <span class="article-date full-w margin-b clr-black">{{ item.publish_date|date('F d, Y') }}</span>
     <h1 class="article-headline ">{{ item.name }}</h1>
 
+    {% if item.author %}
     <a class="article-details row uppercase tracked" href=" {{ item.author.link }}" target="_blank">
       <img class="avatar" src="{{ item.author.avatar.url }}"/>
       <span class="row center-tb">by {{ item.author.name }} {{ item.author.last_name }}</span>
     </a>
+    {% endif %}
 
     {% set next = nextItem(item, 'publish_date') %}
     {% set prev = prevItem(item, 'publish_date') %}
@@ -31,16 +33,18 @@
         <div class="item-name">{{ prev.name }}</div>
       </a>
     {% endif %}
-    <span class="bkgd-gradient overlay depth-0" style="background: {{ item.color }}; opacity: {{ item.opacity }};"></span>
+    <span class="bkgd-gradient overlay depth-0" style="background: {{ item.overlay }}; opacity: {{ item.opacity }};"></span>
   </header>
 
   <div class="bkgd-white column right-half serif-font" data-js="video-container">
 
-    {# Intro #}
-    <h2 class="article-intro thin no-margin bkgd-lightest-grey column padding">{{ item.intro }}</h2>
+    {% if item.intro %}
+      {# Intro #}
+      <h2 class="article-intro thin no-margin bkgd-lightest-grey column padding">{{ item.intro|safe }}</h2>
 
-    {# Sharing Buttons #}
-    {% include 'templates/partials/sharing-buttons.html' %}
+      {# Sharing Buttons #}
+      {% include 'templates/partials/sharing-buttons.html' %}
+    {% endif %}
 
     {# Body #}
     <div class="article-content sans-font">{{ item.body|safe }}</div>
