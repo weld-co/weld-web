@@ -1,18 +1,16 @@
-.section-1,
-.section-2, 
-.section-3, 
-.section-4, 
-.section-5, 
-.section-6 {
-  min-width: 1000px;
+.logomark {
+  max-width: 87px;
 }
 
-.section-1 {
-  background: url(../images/welderwire/section-0.jpg) no-repeat center top 10vh, url(../images/welderwire/section-1.jpg) no-repeat center bottom, #302824;
-  height: 100vh;
-  max-height: 1000px;
-  min-height: 860px;
-  animation: slide-up 500ms ease-in-out;
+.digital-subhead {
+  font-size: 21px;
+  margin-bottom: 8%;
+}
+
+.members-screen {
+  box-shadow: 0 0 60px 0 fade-out($true-black, 0.5);
+  filter: brightness(0.95);
+  margin-bottom: 2rem;
 }
 
 .section-2 {

@@ -1,5 +1,5 @@
 {% extends 'templates/partials/base.html' %}
-{% block scheme %}light{% endblock %}
+
 {% block title %}{{ item.name }}{% endblock %}
 {% block searchable %}true{% endblock %}
 
@@ -41,7 +41,7 @@
 
     {% if item.intro %}
       {# Intro #}
-      <h2 class="article-intro thin no-margin bkgd-lightest-grey column padding">{{ item.intro|safe }}</h2>
+      <h2 class="article-intro padding no-margin bkgd-lightest-grey thin">{{ item.intro|safe }}</h2>
 
       {# Sharing Buttons #}
       {% include 'templates/partials/sharing-buttons.html' %}

@@ -304,6 +304,14 @@ $margin: 2em;
   font-family: $sans-font;
 }
 
+.bigger-font {
+  font-size: 105%;
+}
+
+.smaller-font {
+  font-size: 95%;
+}
+
 .thin {
   -webkit-font-smoothing: antialiased;
   font-weight: 100;

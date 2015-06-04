@@ -1,8 +1,15 @@
+article.row {
+  @include small {
+    flex-direction: column;
+  }
+}
+
 .article-header {
   min-height: 500px;
   @include small {
     position: relative;
-    height: 90vh;
+    min-height: 420px;
+    height: 60vh;
   }
 }
 
@@ -13,7 +20,7 @@
   transition: opacity 300ms;
   &:hover { opacity: 1; }
   @include small {
-    top: 75px;
+    top: 65px;
     font-size: 0.75rem;
   }
 }
@@ -72,6 +79,15 @@
   line-height: 1.5;
 }
 
+> h1, h2, h3, h4, h5, h6, p {
+  max-width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+  @include small {
+    max-width: 35rem
+  }
+}
+
 > p:first-child:first-line {
   color: $primary-color;
 }
@@ -107,9 +123,7 @@ blockquote {
    Links
 ====================================================*/
 
-a {
-  @extend .link;
-}
+a { @extend .link; }
 
 [data-type="image"] > a {
   cursor: zoom-in;
@@ -117,7 +131,6 @@ a {
     display: none;
   }
 }
-
 
 /*====================================================
   Embedded Media
@@ -127,7 +140,7 @@ img, iframe {
   // Fill width of article-content
   width: calc(100% + 10vw);
   margin-left: -5vw;
-  margin-top: 3vw;
+  margin-top: 2rem;
 }
 
 figure {
@@ -135,8 +148,13 @@ figure {
 }
 
 figcaption {
-  font: 300 12px/1.4 $sans-font;
+  font: 300 0.75rem/1.4 $sans-font;
   color: $grey;
+  margin-top: 0.5vw;
+
+  > br {
+    display: none;
+  }
 }
 
 } // .article-content
