@@ -1,5 +1,6 @@
 {% extends 'templates/partials/base.html' %}
 {% block title %}{{ item.name }}{% endblock %}
+{% block searchable %}true{% endblock %}
 
 {% block content %}
 
@@ -77,5 +78,8 @@
     <input class="button input-group-button" type="submit" value="I'm coming!" name="subscribe" id="mc-embedded-subscribe">
   </form>
 </div>
+{% endblock %}
 
+{% block scripts_extra %}
+  <script src="/static/scripts/events.js"></script>
 {% endblock %}

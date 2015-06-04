@@ -198,7 +198,7 @@ fieldset,
     Validation
 ====================================================*/
 
-.input:not([type=submit]):not([type=date]):not([type=file]):not([type=number]):not([type=radio]):not([type=checkbox]):focus {
+.input:not('.no-validation'):not([type=submit]):not([type=date]):not([type=file]):not([type=number]):not([type=radio]):not([type=checkbox]):focus {
   &:valid,
   &:invalid {
     background: white url(../images/ui/invalid-indicator.svg) no-repeat;

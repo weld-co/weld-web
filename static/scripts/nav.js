@@ -6,6 +6,6 @@ $(document).ready(function() {
     // Delay link clicks to show click animation
     setTimeout(function(){
       window.location = navLink;
-    }, 150);       
-  }); 
+    }, 150);
+  });
 });

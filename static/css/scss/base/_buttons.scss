@@ -78,7 +78,7 @@ button {
   &-white {
     @extend .button;
     color: $primary-color;
-    background-color: white;
+    background-color: $white;
     filter: drop-shadow(0 4px 0 $lightest-grey);
   }
 

@@ -1,0 +1,45 @@
+// Resets and overrides
+
+.wh-search-results {
+  margin: 0;
+
+  dd {
+    margin: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.search-form .input {
+  margin-bottom: 0 !important;
+}
+
+.wh-search-results-total {
+  border: 1px solid $light-grey;
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+}
+
+.wh-search-url {
+  font-size: 12px;
+  margin-bottom: 1rem !important;
+  color: $grey;
+}
+
+.wh-search-term-in-page {
+  color: $dark-grey;
+}
+
+.wh-search-term {
+  font-weight: 900;
+  color: $primary-color;
+}

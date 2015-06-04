@@ -26,10 +26,6 @@
   }
 }
 
-.article-intro-wrap {
-  background: $lightest-grey;
-}
-
 .article-intro {
   font-size: 2vmax;
   line-height: 1.2;
@@ -191,26 +187,25 @@ figcaption {
 }
 
 .next-item {
-  right: 0;
-  padding-right: 40px;
-  padding-left: 25px;
-  &:before {
-    content: url(/static/images/ui/right-icon-small.svg);
-    right: 15px;
-  }
-
-  + .prev-item {
-    opacity: 0.6;
-  }
-}
-
-.prev-item {
   left: 0;
   padding-right: 25px;
   padding-left: 40px;
   &:before {
     content: url(/static/images/ui/left-icon-small.svg);
     left: 15px;
+  }
+  + .prev-item {
+    opacity: 0.6;
+  }
+}
+
+.prev-item {
+  right: 0;
+  padding-right: 40px;
+  padding-left: 25px;
+  &:before {
+    content: url(/static/images/ui/right-icon-small.svg);
+    right: 15px;
   }
 }
 

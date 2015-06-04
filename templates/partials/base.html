@@ -23,7 +23,7 @@ Bye. Thanks for stopping by.
 <html lang="en">
   <head>
   <meta charset="utf-8">
-  <title>{{ getSetting('site_name') }} &mdash; {% block title %}We Create Better Together{% endblock %}</title>
+  <title>{% block title %}{{ getSetting('site_name') }} &mdash; We Create Better Together{% endblock %}</title>
   <meta name="description" content="{{ getSetting('site_description') }}">
   <link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico">
 
@@ -40,9 +40,9 @@ Bye. Thanks for stopping by.
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7238032/778086/css/fonts.css" />
 </head>
 
-  <body class="{% block scheme %}dark{% endblock %}">
+  <body class="{% block scheme %}dark{% endblock %}" data-search-index="{% block searchable %}false{% endblock %}">
 
-  {# don't show nav on homepage #}
+  {# Hide nav on homepage #}
   {% if getCurrentUrl() != '/' %}
     {% include 'templates/partials/nav.html' %}
   {% endif %}
@@ -50,29 +50,37 @@ Bye. Thanks for stopping by.
   {% block content %}{% endblock %}
 
   <!-- build:js /static/scripts/main.js -->
+  {# Deps #}
   <script src="/static/scripts/vendor/jquery-2.1.4.min.js"></script>
   <script src="/static/scripts/vendor/jquery.cookie.js"></script>
   <script src="/static/scripts/vendor/jquery.vide.min.js"></script>
   <script src="/static/scripts/vendor/jquery.swipebox.min.js"></script>
-  <script src="/static/scripts/vendor/jquery.plugin.min.js"></script>
-  <script src="/static/scripts/vendor/jquery.countdown.min.js"></script>
   <script src="/static/scripts/vendor/jquery.typetype.min.js"></script>
-  <script src="/static/scripts/vendor/jquery.appear.js"></script>
+  <script src="/static/scripts/vendor/tipue.js"></script>
 
-  <script src="/static/scripts/typetype.js"></script>
-  <script src="/static/scripts/gallery.js"></script>
-  <script src="/static/scripts/nav.js"></script>
-  <script src="/static/scripts/button_progress.js"></script>
-  <script src="/static/scripts/memberships.js"></script>
+  {# Global #}
   <script src="/static/scripts/page_close.js"></script>
-  <script src="/static/scripts/click_animation.js"></script>
-  <script src="/static/scripts/fullscreen_form.js"></script>
-  <script src="/static/scripts/bookings.js"></script>
-  <script src="/static/scripts/community.js"></script>
-  <script src="/static/scripts/events.js"></script>
   <script src="/static/scripts/modal.js"></script>
+  <script src="/static/scripts/gallery.js"></script>
+  <script src="/static/scripts/search.js"></script>
+
+  {# Homepage #}
+  <script src="/static/scripts/typetype.js"></script>
+  <script src="/static/scripts/nav.js"></script>
+  <script src="/static/scripts/click_animation.js"></script>
+
+  {# Apply #}
+  <script src="/static/scripts/fullscreen_form.js"></script>
+  <script src="/static/scripts/button_progress.js"></script>
+
+  {# Blog #}
   <script src="/static/scripts/article_images.js"></script>
   <script src="/static/scripts/video_embed_sizing.js"></script>
+
+  {# Pages #}
+  <script src="/static/scripts/memberships.js"></script>
+  <script src="/static/scripts/community.js"></script>
+  <script src="/static/scripts/bookings.js"></script>
   <!-- endbuild -->
 
   <!-- Fresh URL - Learn more at http://wistia.com/blog/fresh-url -->
@@ -84,5 +92,8 @@ Bye. Thanks for stopping by.
   <script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push( arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0]; d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode. insertBefore(d,q)}(window,document,'script','_gs');  _gs('GSN-413702-U'); </script>
   <!-- GoSquared Event Tracking -->
   <script>$('[data-event]').on('click', function() { _gs('event', $(this).data('event')); });</script>
+
+  {% block scripts_extra %}{% endblock %}
+
   </body>
 </html>
