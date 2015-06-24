@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<article class="row">
-  <header class="article-header position-f bkgd-cover bkgd-no-repeat clr-white column half-w full-h center-tb padding depth-1" style="background-image: url({{ item.cover_image.url }}); background-position: {{ item.image_alignment }};">
+<article class="column">
+  <header class="article-header position-r bkgd-cover bkgd-no-repeat clr-white column full-screen center-tb padding depth-1" style="background-image: url({{ item.cover_image.url }}); background-position: {{ item.image_alignment }};">
     <a class="article-list-link position-a" href="{{ url('articles') }}" data-search-index="false">← All Articles</a>
     <span class="article-date full-w margin-b clr-black" data-search-index="false">{{ item.publish_date|date('F d, Y') }}</span>
     <h1 class="article-headline" data-search-index="false">{{ item.name }}</h1>
@@ -37,18 +37,18 @@
     <span class="bkgd-gradient overlay depth-0" style="background: {{ item.overlay }}; opacity: {{ item.opacity }};"></span>
   </header>
 
-  <div class="bkgd-white column right-half serif-font" data-js="video-container">
+  <div class="bkgd-white column full-w" data-js="video-container">
 
     {% if item.intro %}
       {# Intro #}
-      <h2 class="article-intro padding no-margin bkgd-lightest-grey thin">{{ item.intro|safe }}</h2>
+      <span class="article-intro padding no-margin bkgd-lightest-grey slab-font">{{ item.intro|safe }}</span>
 
       {# Sharing Buttons #}
       {% include 'templates/partials/sharing-buttons.html' %}
     {% endif %}
 
     {# Body #}
-    <div class="article-content sans-font">{{ item.body|safe }}</div>
+    <div class="article-content serif-font">{{ item.body|safe }}</div>
 
     {# Sharing Buttons #}
     {% include 'templates/partials/sharing-buttons.html' %}

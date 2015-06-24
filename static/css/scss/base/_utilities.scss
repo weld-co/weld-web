@@ -296,8 +296,12 @@ $margin: 2em;
   text-decoration: underline;
 }
 
-.serif-font {
+.slab-font {
   font-family: $slab-font;
+}
+
+.serif-font {
+  font-family: $serif-font;
 }
 
 .sans-font {

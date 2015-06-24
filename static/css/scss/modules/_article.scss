@@ -6,6 +6,7 @@ article.row {
 
 .article-header {
   min-height: 500px;
+  height: 90vh;
   @include small {
     position: relative;
     min-height: 420px;
@@ -26,7 +27,7 @@ article.row {
 }
 
 .article-headline {
-  font-size: 4vw;
+  font-size: 5vw;
   line-height: 1;
   @include small {
     font-size: 2rem;
@@ -35,7 +36,7 @@ article.row {
 
 .article-intro {
   font-size: 2vmax;
-  line-height: 1.2;
+  line-height: 1.4;
 
   a {
     color: $primary-color;
@@ -66,17 +67,24 @@ article.row {
 ====================================================*/
 
 .article-content {
-  line-height: 1.7;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: $faded-black;
   padding: 5vw;
+
+  @include small {
+    font-size: 1rem;
+  }
 
 /*====================================================
     First paragraph of body content
 ====================================================*/
 
 > p:first-child {
-  font-size: 135%;
-  font-weight: 500;
-  line-height: 1.5;
+  font-family: $sans-font;
+  font-size: 125%;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 > h1, h2, h3, h4, h5, h6, p {
