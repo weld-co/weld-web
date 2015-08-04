@@ -212,7 +212,7 @@ figcaption {
   }
 }
 
-.next-item {
+.prev-item {
   left: 0;
   padding-right: 25px;
   padding-left: 40px;
@@ -220,12 +220,12 @@ figcaption {
     content: url(/static/images/ui/left-icon-small.svg);
     left: 15px;
   }
-  + .prev-item {
+  + .next-item {
     opacity: 0.6;
   }
 }
 
-.prev-item {
+.next-item {
   right: 0;
   padding-right: 40px;
   padding-left: 25px;
@@ -241,17 +241,14 @@ figcaption {
 
 .sharing-buttons {
   height: 2rem;
-  filter: saturate(0);
+  filter: saturate(0.5);
   transition-duration: 300ms;
-  transition-property: filter, -webkit-filter, opacity;
-  opacity: 0.5;
+  transition-property: filter, -webkit-filter;
   &:hover,
   &:active {
-    opacity: 1;
     filter: saturate(1);
   }
   @include small {
-    opacity: 1;
     filter: none;
   }
 }

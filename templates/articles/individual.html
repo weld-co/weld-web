@@ -21,17 +21,17 @@
     {% set next = nextItem(item, 'publish_date') %}
     {% set prev = prevItem(item, 'publish_date') %}
 
-    {% if next %}
-      <a href="{{ url(next) }}" class="next-item depth-10" data-search-index="false">
-        <div class="item-head">Newer</div>
-        <div class="item-name">{{ next.name }}</div>
-      </a>
-    {% endif %}
-
     {% if prev %}
       <a href="{{ url(prev) }}" class="prev-item depth-10" data-search-index="false">
         <div class="item-head">Older</div>
         <div class="item-name">{{ prev.name }}</div>
+      </a>
+    {% endif %}
+
+    {% if next %}
+      <a href="{{ url(next) }}" class="next-item depth-10" data-search-index="false">
+        <div class="item-head">Newer</div>
+        <div class="item-name">{{ next.name }}</div>
       </a>
     {% endif %}
     <span class="bkgd-gradient overlay depth-0" style="background: {{ item.overlay }}; opacity: {{ item.opacity }};"></span>
@@ -65,5 +65,3 @@
 
   </div>
 </article>
-
-{% endblock %}
