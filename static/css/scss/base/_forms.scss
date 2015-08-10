@@ -99,7 +99,7 @@ fieldset,
     }
   }
   .input-group-button {
-
+    margin-bottom: 1rem;
     &:hover { transform: none; }
 
     @include large {

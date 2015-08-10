@@ -4,14 +4,14 @@
 
 {% block content %}
 
-<header class="event-cover column center full-screen text-align-center padding position-r depth-1" style="background-image: url({{ item.background.url }});">
+<header class="event-cover column center vh90 text-align-center bg-cover bg-center bg-fixed p3-percent relative depth-1" style="background-image: url({{ item.background.url }});">
 <span class="overlay depth-0" style="background: {{ item.overlay_color }}; opacity: {{ item.opacity }}"></span>
 
-  <div class="column center-lr">
+  <div class="column top-center">
 
     <span class="event-details sans-font uppercase tracked">{{ item.start|date('F jS, Y – g A') }}</span>
 
-    <h1 class="event-heading thin">{{ item.title }}</h1>
+    <h1 class="heading-large thin">{{ item.title }}</h1>
     <span class="event-subhead sans-font uppercase tracked">{{ item.subhead }}</span>
 
     <form class="ajax-submit input-group row" action="//weld.us4.list-manage.com/subscribe/post-json?u=065b63f81851e09661ae5d9e7&amp;id={{ item.mailchimp_list }}&c=?" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -40,17 +40,17 @@
 </section>
 
 {% if item.description %}
-<section class="event-description wysiwyg bkgd-lightest-grey row center text-align-center clr-black">
-  <span class="event-description-wrap serif-font thin no-margin">{{ item.description|safe }}</span>
+<section class="event-description wysiwyg bg-lightest-grey row center text-align-center clr-black">
+  <span class="event-description-wrap serif-font thin m0">{{ item.description|safe }}</span>
 </section>
 {% endif %}
 
-<section class="bkgd-white row center padding text-align-center clr-black">
+<section class="bg-white row center p3-percent text-align-center clr-black">
   <h5 class="sans-font uppercase tracked">Sponsored by</h5>
   <img src="{{ item.sponsors|imageSize(2000, 'auto') }}"/>
 </section>
 
-<div class="modal full-screen row center depth-10">
+<div class="modal fullscreen row center depth-10">
   <div class="modal-message-wrap column center slideUp">
     <div class="modal-message-headline text-align-center sans-font uppercase tracked">Yeah! Check your email to confirm.</div>
 
@@ -71,7 +71,7 @@
   <span class="modal-background"></span>
 </div>
 
-<div class="column center padding clr-black bkgd-lightest-grey">
+<div class="column center text-align-center p3-percent clr-black bg-lightest-grey">
   <h3>Let us know if you’re coming!</h3>
   <form class="ajax-submit input-group row" action="//weld.us4.list-manage.com/subscribe/post?u=065b63f81851e09661ae5d9e7&amp;id={{ item.mailchimp_list }}" method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <input class="input input-group-input" type="email" placeholder="count@me.in" name="EMAIL" id="mce-EMAIL" required>

@@ -9,13 +9,15 @@ $gutter: 1rem;
 .row,
 .cell {
   display: flex;
-  flex-grow: 1;
 }
 
 .column {
   flex: 1;
   flex-direction: column;
   flex-wrap: nowrap;
+  @include small {
+    min-width: 100%;
+  }
 }
 
 .row {

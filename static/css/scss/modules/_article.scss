@@ -15,7 +15,7 @@ article.row {
 }
 
 .article-list-link {
-  top: $page-padding;
+  top: $padding-percent * 3;
   opacity: 0.5;
   font-size: 0.875rem;
   transition: opacity 300ms;

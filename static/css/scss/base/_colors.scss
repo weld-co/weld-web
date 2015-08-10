@@ -24,8 +24,8 @@ $primary-color: $weld;
 $secondary-color: $blue;
 
 // Gradients
-$bkgd-gradient: linear-gradient(to bottom left, fade-out($blue, 0.2), fade-out($primary-color, 0.2));
-$bkgd-gradient-reverse: linear-gradient(to top right, fade-out($blue, 0.2), fade-out($primary-color, 0.2));
+$bg-gradient: linear-gradient(to bottom left, fade-out($blue, 0.2), fade-out($primary-color, 0.2));
+$bg-gradient-reverse: linear-gradient(to top right, fade-out($blue, 0.2), fade-out($primary-color, 0.2));
 
 // Random Variables
 $border: 1px solid darken($lightest-grey, 2);

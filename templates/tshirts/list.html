@@ -1,11 +1,11 @@
 {% extends 'templates/partials/base.html' %}
 {% block scheme %}light{% endblock %}
-{% block title %}Events{% endblock %}
+{% block title %}T-Shirts{% endblock %}
 
 {% block content %}
   <div class="container column">
     {# The first thing we do is call event data from the CMS. #}
-    {% set data = cms.events%}
+    {% set data = cms.tshirts%}
 
     {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
     {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
@@ -14,7 +14,7 @@
     {# This is how you set pagination. It's always important to do this after your sort. #}
     {% set data = paginate(data, 5) %}
 
-    <h1 class="mb4 text-align-center">WELD Events</h1>
+    <h1 class="mb4 text-align-center">WELD Limited-Edition T-Shirts</h1>
 
     {# This forloop can use any data from http:localhost:2000/cms/#/form/event/ #}
     <ul class="m0 p0">
@@ -22,8 +22,7 @@
       <li data-js="test-contrast" class="list-style-none bg-cover bg-center bg-no-repeat clr-white rounded overflow-hidden mb2 relative depth-1" style="background-image: url( {{ object.background.url }} )">
       <span class="overlay bg-trans-black depth-0 " style="background-color: {{ object.overlay_color }}; opacity: {{ object.opacity }}"></span>
         <a class="column text-align-center p5-percent" href="{{ url(object) }}">
-          <h3 class="m0">{{ object.title }}</h3>
-          <p>{{ object.start|date('F jS, Y – g A') }}</p>
+          <h3 class="m0">{{ object.name }}: {{ object.artist_name }}</h3>
         </a>
       </li>
       {% endfor %}

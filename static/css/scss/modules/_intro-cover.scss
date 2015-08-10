@@ -7,8 +7,9 @@ $cover-padding: 3rem;
 .intro-cover {
   height: 95vh;
   padding: $cover-padding;
-  background: $bkgd-gradient;
+  background: $bg-gradient;
   text-align: center;
+  -webkit-backface-visibility: hidden;
   @include small {
     min-height: 300px;
     padding: 2rem;

@@ -3,7 +3,7 @@ $image-width: 25vw;
 $mobile-image-size: 50vw;
 
 .gallery-overlay {
-  background: $bkgd-gradient-reverse;
+  background: $bg-gradient-reverse;
   opacity: 0.5;
   position: fixed;
   pointer-events: none;

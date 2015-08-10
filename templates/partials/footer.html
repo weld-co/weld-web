@@ -1,7 +1,7 @@
-<footer class="footer row center">
-  <div class="footer-wrap row center">
+<footer class="footer p2">
+  <div class="footer-wrap ma row space-between">
   {% for row in cms.footer.footer_item %}
-    <a class="footer-item cell center" href="{{ row.link }}">{{ row.text }}</a>
+    <a class="footer-item" href="{{ row.link }}">{{ row.text }}</a>
   {% endfor %}
   </div>
 </footer> <!-- nav -->

@@ -4,7 +4,7 @@
 {% block content %}
 
 <a href="http://elisafisher.com/" class="credit-block depth-10">Images by Elisa Fisher</a>
-<div class="gallery-overlay full-screen"></div>
+<div class="gallery-overlay fullscreen"></div>
 <div class="gallery-container row">
   {% for image in cms.gallery.gallery %}
   <a href="{{ image|imageSize(1200) }}" class="gallery-thumbnail swipebox">

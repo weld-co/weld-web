@@ -2,7 +2,7 @@
   background: linear-gradient(to top left, $blue, $primary-color);
   padding: 10%;
   color: white;
-  
+
   .message-heading {
     font: $headline-font;
     margin-bottom: 0;
@@ -14,7 +14,7 @@
     letter-spacing: 2px;
   }
 
-  .cell {
+  .flex {
     flex-grow: 0;
   }
 

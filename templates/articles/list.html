@@ -13,21 +13,21 @@
     {# This is how you set pagination. It's always important to do this after your sort. #}
     {% set data = paginate(data, 5) %}
 
-    <h1 class="text-align-center"><a href="{{ url('articles') }}">The WELD Blog</a></h1>
+    <h1 class="mb4 text-align-center"><a href="{{ url('articles') }}">Sparks by WELD</a></h1>
 
     {# Search Input #}
     {% include 'templates/partials/search.html' %}
 
     {# TODO: Finish converting blog posts and remove slice limit below #}
-    <ul class="no-margin no-padding">
+    <ul class="m0 p0">
       {% for object in data %}
-      <li class="list-style-none bkgd-cover bkgd-center bkgd-no-repeat clr-white rounded overflow-hidden margin-b position-r depth-1" style="background-image: url( {{ object.cover_image.url}} )">
-        <a class="column padding" href="{{ url(object) }}">
-          {% if object.author %}<img class="avatar margin-b" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">{% endif %}
+      <li class="list-style-none bg-cover bg-center bg-no-repeat clr-white rounded overflow-hidden mb2 relative depth-1" style="background-image: url( {{ object.cover_image.url}} )">
+        <a class="column p3-percent" href="{{ url(object) }}">
+          {% if object.author %}<img class="avatar mb2" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">{% endif %}
           <h1>{{ object.name }}</h1>
           <p>{{ object.intro|striptags }}</p>
         </a>
-        <span class="overlay bkgd-trans-black depth-0" style="background-color: {{ object.overlay }}; opacity: {{ object.opacity }};"></span>
+        <span class="overlay bg-trans-black depth-0" style="background-color: {{ object.overlay }}; opacity: {{ object.opacity }};"></span>
       </li>
       {% endfor %}
     </ul>

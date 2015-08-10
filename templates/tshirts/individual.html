@@ -1,0 +1,60 @@
+{% extends 'templates/partials/base.html' %}
+{% block title %}WELD — T-Shirt {{ item.name }}{% endblock %}
+{% block searchable %}true{% endblock %}
+
+{% block content %}
+
+<header class="tshirt-cover column center vh65 text-align-center bg-cover bg-center bg-fixed p3-percent relative depth-1" style="background-image: url({{ item.background.url }});">
+  <span class="overlay depth-0" style="background: {{ item.overlay_color }}; opacity: {{ item.opacity }}"></span>
+  <div class="column center">
+    <span class="event-details clr-grey sans-font uppercase tracked">{{ item.intro }}</span>
+    <h1 class="heading-large thin mb4">{{ item.name }}: {{ item.artist_name }}</h1>
+    <div class="w100 clr-grey uppercase tracked">
+      <span class="mr1 desktop-only">Get your </span>
+      <a href="{{ item.mens_link }}" target="_blank" class="button mr1 mb1">Men's</a>
+      <a href="{{ item.womens_link }}" target="_blank" class="button mr1">Women's</a>
+      <span class="desktop-only">T-Shirt.</span>
+    </div>
+  </div>
+</header>
+
+<section class="vh25 row overflow-hidden">
+  {% for image in item.gallery %}
+  <a href="{{ image|imageSize(1800) }}" class="flex1 swipebox">
+    <img class="product-thumb vh25 img-cover" src="{{ image|imageCrop(400, 400) }}">
+  </a>
+  {% endfor%}
+</section>
+
+{% if item.description %}
+<section class="event-description row center text-align-center bg-lightest-grey wysiwyg">
+  <span class="event-description-wrap serif-font thin m0">{{ item.description|safe }}</span>
+</section>
+{% endif %}
+
+<section class="row p3-percent center text-align-center bg-white wysiwyg">
+  <div class="">
+    <img src="{{ item.artist_image|imageCrop(400, 400) }}" class="max-w200px circle mb1">
+    <div class="h4 optimal-length sans-font lh5">{{ item.artist_bio|safe }}</div>
+  </div>
+</section>
+
+<section class="row p3-percent center text-align-center bg-white bt1 wysiwyg">
+  <div class="">
+    <img src="{{ item.printer_image|imageCrop(400, 400) }}" class="max-w200px circle mb1">
+    <div class="h4 optimal-length sans-font lh5">{{ item.printer_bio|safe }}</div>
+  </div>
+</section>
+
+{% include 'templates/partials/sharing-buttons.html' %}
+
+<section class="column p3-percent center text-align-center bg-black">
+  <div class="w100 clr-grey uppercase tracked">
+    <span class="mr1 desktop-only">Get your </span>
+    <a href="{{ item.mens_link }}" target="_blank" class="button mr1 mb1">Men's</a>
+    <a href="{{ item.womens_link }}" target="_blank" class="button mr1">Women's</a>
+    <span class="desktop-only">T-Shirt.</span>
+  </div>
+</section>
+
+{% endblock %}

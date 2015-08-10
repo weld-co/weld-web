@@ -47,7 +47,7 @@
 
 .next-button,
 .prev-button {
-  bottom: $page-padding;
+  bottom: $padding-percent * 3;
   position: absolute;
   z-index: 100;
   min-width: 150px;
@@ -58,7 +58,7 @@
 }
 
 .next-button {
-  right: $page-padding;
+  right: $padding-percent * 3;
   animation: fade-in 2s;
   filter: none !important;
   &:before {
@@ -82,7 +82,7 @@
 }
 
 .prev-button {
-  left: $page-padding;
+  left: $padding-percent * 3;
   padding-bottom: 2rem;
 }
 
