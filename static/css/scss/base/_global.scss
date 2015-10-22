@@ -29,6 +29,13 @@ body {
     Container
 ====================================================*/
 
+$max-width: 1200px;
+
+.page-container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
 .container {
   padding: 4rem 1.5rem 5rem 1.5rem;
   padding-bottom: 5rem;

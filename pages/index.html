@@ -14,7 +14,7 @@
     <a href="/community" class="main-cta button-white opacity-0" data-event="{{ cms.homepage.cta }}">{{ cms.homepage.cta }}</a>
   </span>
 
-  {#
+  {# <!-- Latest Blog Post -->
   {% for item in cms.articles|sort('publish_date', true)|slice(0,1) %}
   <a href="{{ url(item) }}" class="news column center">
     <span class="faded">{{ item.author.name }} Posted a new article:</span>
