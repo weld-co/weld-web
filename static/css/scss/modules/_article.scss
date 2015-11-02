@@ -62,9 +62,9 @@ article.row {
   font-weight: 500;
 }
 
-/*====================================================
-    .article-content wraps all following styles
-====================================================*/
+//====================================================
+//  .article-content wraps all following styles
+//====================================================
 
 .article-content {
   font-size: 1.4rem;
@@ -76,16 +76,9 @@ article.row {
     font-size: 1rem;
   }
 
-/*====================================================
-    First paragraph of body content
-====================================================*/
-
-> p:first-child {
-  font-family: $sans-font;
-  font-size: 125%;
-  font-weight: 700;
-  line-height: 1.4;
-}
+//====================================================
+//  First paragraph of body content
+//====================================================
 
 > h1,
 > h2,
@@ -93,8 +86,10 @@ article.row {
 > h4,
 > h5,
 > h6,
-> p {
-  max-width: 45rem;
+> p,
+> ul,
+> ol {
+  max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
   @include small {
@@ -106,9 +101,9 @@ article.row {
   color: $primary-color;
 }
 
-/*====================================================
-    Last paragraph of body content
-====================================================*/
+//====================================================
+//  Last paragraph of body content
+//====================================================
 
 > p:last-child:after {
   content: '✍';
@@ -118,9 +113,9 @@ article.row {
   vertical-align: middle;
 }
 
-/*====================================================
-    Blockquotes
-====================================================*/
+//====================================================
+//  Blockquotes
+//====================================================
 
 figure[data-type="quote"] {
   margin: 2rem 0;
@@ -133,9 +128,23 @@ blockquote {
   padding-left: 1rem;
 }
 
-/*====================================================
-   Links
-====================================================*/
+//====================================================
+//  Lists
+//====================================================
+
+ul, ol {
+  font: $base-font;
+  font-weight: bold;
+  line-height: 2;
+  background-color: $lightest-grey;
+  padding: 2rem;
+  border-radius: $border-radius;
+  list-style-position: inside;
+}
+
+//====================================================
+//  Links
+//====================================================
 
 a { @extend .link; }
 
@@ -146,19 +155,22 @@ a { @extend .link; }
   }
 }
 
-/*====================================================
-  Embedded Media
-====================================================*/
+//====================================================
+//  Embedded Media & Galleries
+//====================================================
 
-img, iframe {
+figure[data-type="image"] img,
+figure iframe,
+.gallery-container {
   // Fill width of article-content
   width: calc(100% + 10vw);
   margin-left: -5vw;
-  margin-top: 2rem;
+  margin-top: 5%;
 }
 
-figure {
-  margin-bottom: 2rem;
+figure,
+.gallery-container  {
+  margin-bottom: 5%;
 }
 
 figcaption {
@@ -171,11 +183,23 @@ figcaption {
   }
 }
 
+.article-gallery-overlay {
+  background: $bg-gradient-reverse;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 } // .article-content
 
-/*====================================================
-    Next/Prev Buttons
-====================================================*/
+//====================================================
+//  Next/Prev Buttons
+//====================================================
 
 .next-item,
 .prev-item {
@@ -241,9 +265,9 @@ figcaption {
   }
 }
 
-/*====================================================
-    Sharing Buttons
-====================================================*/
+//====================================================
+//  Sharing Buttons
+//====================================================
 
 .sharing-buttons {
   height: 2rem;
@@ -285,4 +309,15 @@ figcaption {
 
 .sharing-button-pinterest {
   background-color: #cc2127;
+}
+
+//====================================================
+//  Disqus
+//====================================================
+
+.disqus-container {
+  padding: 5% 10%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
 }

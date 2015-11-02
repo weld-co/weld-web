@@ -1,0 +1,22 @@
+{% extends 'templates/partials/nye.html' %}
+{% block title %}NYE — WELD Nashville{% endblock %}
+{% block searchable %}true{% endblock %}
+
+{% block content %}
+
+<div id="main">
+  <img src="nye.png">
+  <p style="color:#ddd;"> Come get your dance on and ring in the New Year with WELD! Limited tickets available. Beer, Wine & Bubbly Provided. Cheers!</p>
+  <p style="color:#ddd;">Parking is limited and vehicles are not allowed overnight. Uber or Lyft is highly recommended. </p>
+  <p style="font-weight:bold;">December 31st 2015</p>
+  <p style="font-weight:bold;">10pm-2am</p>
+  <p style="font-weight:bold;">$35 (21+ only)</p>
+  <div style=" margin:0 auto; display:block; "> <a href="https://weldnashvillenye.eventbrite.com" class="btn yellow">PURCHASE TICKETS</a></div>
+</div>
+<canvas id="world"></canvas>
+
+{% endblock %}
+
+{% block scripts_extra %}
+  <script src="./nye.js"></script>
+{% endblock %}

@@ -8,7 +8,7 @@
 <article class="column">
   <header class="article-header relative bg-cover bg-no-repeat clr-white column fullscreen center-left p3-percent depth-1" style="background-image: url({{ item.cover_image.url }}); background-position: {{ item.image_alignment }};">
     <a class="article-list-link absolute" href="{{ url('articles') }}" data-search-index="false">← All Articles</a>
-    <span class="article-date full-w mb2 clr-black" data-search-index="false">{{ item.publish_date|date('F d, Y') }}</span>
+    <span class="article-date full-w mb2 clr-black" data-search-index="false">{{ item.publish_date|date('F d, Y') }} / <a href="#disqus_thread" class="clr-white">Comments</a></span>
     <h1 class="article-headline" data-search-index="false">{{ item.name }}</h1>
 
     {% if item.author %}
@@ -39,29 +39,49 @@
 
   <div class="bg-white column full-w" data-js="video-container">
 
+    {# Intro #}
     {% if item.intro %}
-      {# Intro #}
       <span class="article-intro p3-percent m0 bg-lightest-grey slab-font">{{ item.intro|safe }}</span>
-
-      {# Sharing Buttons #}
       {% include 'templates/partials/sharing-buttons.html' %}
     {% endif %}
 
-    {# Body #}
-    <div class="article-content serif-font">{{ item.body|safe }}</div>
+    <div class="article-content serif-font">
+
+      {# Body #}
+      {{ item.body|safe }}
+
+      {# Gallery #}
+      {% if item.gallery %}
+      <div class="gallery-container row relative">
+        <div class="article-gallery-overlay"></div>
+        {% for image in item.gallery %}
+        <a href="{{ image|imageSize(1200) }}" class="gallery-thumbnail swipebox">
+          <img class="gallery-image" src="{{ image|imageSize(800) }}">
+        </a>
+        {% endfor%}
+      </div>
+      {% endif %}
+
+      {% if item.body_after_gallery %}
+        {{ item.body_after_gallery|safe }}
+      {% endif %}
+
+    </div> <!-- article-content -->
 
     {# Sharing Buttons #}
     {% include 'templates/partials/sharing-buttons.html' %}
 
-    {# CTA #}
-    {% if item.cta %}
-    <div class="wysiwyg h3 p3-percent m0 p-inline">{{ item.cta|safe }} - {{ item.author.name }}</div>
-    {% endif %}
+    {# Disqus #}
+    <div id="disqus_thread" class="disqus-container"></div>
+    <script>(function() { var d = document, s = d.createElement('script'); s.src ='//weldco.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script>
 
     {# Footer #}
     <div class="article-footer row bg-lightest-grey p3-percent" data-search-index="false">
       {% include 'templates/partials/notified.html' %}
     </div>
-
   </div>
 </article>
+
+{% block scripts_extra %}
+  <script id="dsq-count-scr" src="//weldco.disqus.com/count.js" async></script>
+{% endblock %}
