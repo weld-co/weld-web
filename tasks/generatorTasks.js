@@ -89,18 +89,20 @@ module.exports = function(grunt) {
     var done = this.async();
     generator.webListener(done);
 
-    grunt.util.spawn({
-      grunt: true,
-      args: ['open:wh-open'].concat(grunt.option.flags()),
-      opts: { stdio: 'inherit' }
-    }, function (err, result, code) {
-      if (err || code > 0) {
-        grunt.log.warn('A problem occured while trying to open a browser window to connect to the site.')
-        grunt.log.warn(result.stderr || result.stdout);
-        grunt.log.warn('In order to access the site, please navigate to \'localhost:2002\' in your web browser.')
-      }
-      grunt.log.writeln('\n' + result.stdout);
-    });
+    // #CUSTOM - Removed to let BrowserSync open the pages
+
+    // grunt.util.spawn({
+    //   grunt: true,
+    //   args: ['open:wh-open'].concat(grunt.option.flags()),
+    //   opts: { stdio: 'inherit' }
+    // }, function (err, result, code) {
+    //   if (err || code > 0) {
+    //     grunt.log.warn('A problem occured while trying to open a browser window to connect to the site.')
+    //     grunt.log.warn(result.stderr || result.stdout);
+    //     grunt.log.warn('In order to access the site, please navigate to \'localhost:2002\' in your web browser.')
+    //   }
+    //   grunt.log.writeln('\n' + result.stdout);
+    // });
   });
 
   grunt.registerTask('clean', 'Clean build files', function() {
@@ -170,10 +172,11 @@ module.exports = function(grunt) {
 
     var sitename = grunt.option('sitename');
     var secretkey = grunt.option('secretkey');
+    var server = grunt.option('server');
     var copyCms = grunt.option('copycms');
     var firebase = grunt.option('firebase');
 
-    generator.init(sitename, secretkey, copyCms, firebase, done);
+    generator.init(sitename, secretkey, copyCms, firebase, server, done);
   });
 
   // Check if initialized properly before running all these tasks

@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   }
 
   var oldConfig = grunt.config.data;
-  
+
   var port = grunt.option('port') || '2002';
 
 
@@ -29,11 +29,13 @@ module.exports = function(grunt) {
   var mergeConfig = {
     webhook: conf,
 
-    open : {
-      'wh-open': {
-        path: 'http://localhost:' + port + '/'
-      }
-    },
+    // #CUSTOM - Removed to let BrowserSync open the pages
+
+    // open : {
+    //   'wh-open': {
+    //     path: 'http://localhost:' + port + '/'
+    //   }
+    // },
 
     connect: {
       'wh-server': {
@@ -52,18 +54,18 @@ module.exports = function(grunt) {
               var contents = fs.readFileSync('./libs/debug404.html');
               res.end(contents);
             });
-            
+
             return middlewares;
           }
         },
         proxies: [
             {
                 context: '/webhook-uploads',
-                host:  conf.custom ? unescapeSite(conf.siteName) : (conf.siteName + '.webhook.org'),
+                host: conf.imageproxy ? conf.imageproxy : (conf.custom ? unescapeSite(conf.siteName) : (conf.siteName + '.webhook.org')),
                 port: 80,
                 changeOrigin: true,
                 headers: {
-                  host: conf.custom ? unescapeSite(conf.siteName) : (conf.siteName + '.webhook.org')
+                  host: conf.imageproxy ? conf.imageproxy : (conf.custom ? unescapeSite(conf.siteName) : (conf.siteName + '.webhook.org'))
                 }
             }
         ]
@@ -132,7 +134,7 @@ module.exports = function(grunt) {
   }
 
   grunt.initConfig(oldConfig);
-  
+
   grunt.loadNpmTasks('grunt-simple-watch');
   grunt.loadNpmTasks('grunt-rev');
   grunt.loadNpmTasks('grunt-contrib-concat');

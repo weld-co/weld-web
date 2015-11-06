@@ -2,7 +2,7 @@
 // array as new communty pages get added
 
 // Set total number of pages available
-var totalPages = [1,2];
+var totalPages = [1,2,3];
 // First page set by 0 index
 var indexOfPage = 0
 
