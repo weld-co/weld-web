@@ -29,13 +29,11 @@ module.exports = function(grunt) {
   var mergeConfig = {
     webhook: conf,
 
-    // #CUSTOM - Removed to let BrowserSync open the pages
-
-    // open : {
-    //   'wh-open': {
-    //     path: 'http://localhost:' + port + '/'
-    //   }
-    // },
+    open : {
+      'wh-open': {
+        path: 'http://localhost:' + port + '/'
+      }
+    },
 
     connect: {
       'wh-server': {

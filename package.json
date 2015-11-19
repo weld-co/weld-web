@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "autoprefixer": "latest",
-    "grunt-browser-sync": "latest",
     "grunt-postcss": "latest",
     "grunt-sass": "latest"
   }
