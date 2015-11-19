@@ -118,7 +118,10 @@ article.row {
 //====================================================
 
 figure[data-type="quote"] {
-  margin: 2rem 0;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
   border-left: 5px solid $primary-color;
 }
 
@@ -159,10 +162,22 @@ a { @extend .link; }
 //  Embedded Media & Galleries
 //====================================================
 
-figure[data-type="image"] img,
+figure[data-type="image"] {
+  max-width: 1200px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  // Use the code below instead once we figure out
+  // how to make wysiwyg images wider than 1200px
+  @include small {
+    width: calc(100% + 10vw);
+    margin-left: -5vw;
+  }
+}
+
+// Fill width of article-content
 figure iframe,
 .gallery-container {
-  // Fill width of article-content
   width: calc(100% + 10vw);
   margin-left: -5vw;
   margin-top: 5%;
@@ -180,6 +195,10 @@ figcaption {
 
   > br {
     display: none;
+  }
+  @include small {
+    margin-left: 5vw;
+    margin-right: 5vw;
   }
 }
 
@@ -320,4 +339,15 @@ figcaption {
   margin: 0 auto;
   width: 100%;
   max-width: 1200px;
+}
+
+//====================================================
+//  Sponsors
+//====================================================
+
+.blog-sponsor-link {
+  max-width: 150px;
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
 }

@@ -68,6 +68,19 @@
 
     </div> <!-- article-content -->
 
+    {% if item.sponsors %}
+    <div class="column center p2 bg-lightest-grey">
+    <h5 class="sans-font uppercase tracked">{{ item.sponsors_headline }}</h5>
+      <div class="row center">
+        {% for row in item.sponsors %}
+        <a class="blog-sponsor-link" href="{{ row.link }}" target="_blank">
+          <img class="blog-sponsor-image" src="{{ row.logo.url }}"/>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     {# Sharing Buttons #}
     {% include 'templates/partials/sharing-buttons.html' %}
 

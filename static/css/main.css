@@ -3404,7 +3404,10 @@ fieldset,
     line-height: 0;
     vertical-align: middle; }
   .article-content figure[data-type="quote"] {
-    margin: 2rem 0;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
     border-left: 5px solid #f1592a; }
   .article-content blockquote {
     color: #f1592a;
@@ -3422,7 +3425,15 @@ fieldset,
     cursor: zoom-in; }
     .article-content [data-type="image"] > a:after {
       display: none; }
-  .article-content figure[data-type="image"] img,
+  .article-content figure[data-type="image"] {
+    max-width: 1200px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto; }
+    @media screen and (max-width: 50em) {
+      .article-content figure[data-type="image"] {
+        width: calc(100% + 10vw);
+        margin-left: -5vw; } }
   .article-content figure iframe,
   .article-content .gallery-container {
     width: calc(100% + 10vw);
@@ -3437,6 +3448,10 @@ fieldset,
     margin-top: 0.5vw; }
     .article-content figcaption > br {
       display: none; }
+    @media screen and (max-width: 50em) {
+      .article-content figcaption {
+        margin-left: 5vw;
+        margin-right: 5vw; } }
   .article-content .article-gallery-overlay {
     background: linear-gradient(to top right, rgba(134, 162, 163, 0.8), rgba(241, 89, 42, 0.8));
     opacity: 0.5;
@@ -3537,6 +3552,11 @@ fieldset,
   margin: 0 auto;
   width: 100%;
   max-width: 1200px; }
+
+.blog-sponsor-link {
+  max-width: 150px; }
+  .blog-sponsor-link:not(:last-child) {
+    margin-right: 1rem; }
 
 .wh-search-results {
   margin: 0; }
@@ -3779,3 +3799,4 @@ html.swipebox-html.swipebox-touch {
     left: 30px; }
   100% {
     left: 0; } }
+/*# sourceMappingURL=main.css.map */

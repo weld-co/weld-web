@@ -2,6 +2,10 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     sass: {
+      options: {
+        sourceMap: true,
+        sourceMapContents: true
+      },
       dist: {
         files: {
           'static/css/main.css': 'scss/main.scss'
@@ -10,6 +14,7 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
+        map: true,
         processors: [
           require('autoprefixer')({ browsers: 'last 1 version' })
         ]
