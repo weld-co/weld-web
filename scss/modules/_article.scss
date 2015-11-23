@@ -6,7 +6,7 @@ article.row {
 
 .article-header {
   min-height: 500px;
-  height: 90vh;
+  height: 85vh;
   @include small {
     position: relative;
     min-height: 420px;
@@ -97,6 +97,14 @@ article.row {
   }
 }
 
+> p:first-child {
+  font-size: 2.25rem;
+  line-height: 1.4;
+  @include small {
+    font-size: 1.4rem;
+  }
+}
+
 > p:first-child:first-line {
   color: $primary-color;
 }
@@ -162,11 +170,13 @@ a { @extend .link; }
 //  Embedded Media & Galleries
 //====================================================
 
+figure,
+.gallery-container  {
+  margin: 2rem auto;
+}
+
 figure[data-type="image"] {
   max-width: 1200px;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
   // Use the code below instead once we figure out
   // how to make wysiwyg images wider than 1200px
   @include small {
@@ -180,11 +190,10 @@ figure iframe,
 .gallery-container {
   width: calc(100% + 10vw);
   margin-left: -5vw;
-  margin-top: 5%;
 }
 
-figure,
-.gallery-container  {
+.gallery-container {
+  margin-top: 5%;
   margin-bottom: 5%;
 }
 
@@ -345,9 +354,27 @@ figcaption {
 //  Sponsors
 //====================================================
 
+.blog-sponsor {
+  @include small {
+    flex-direction: column;
+  }
+}
+
 .blog-sponsor-link {
   max-width: 150px;
   &:not(:last-child) {
     margin-right: 1rem;
   }
+}
+
+.blog-sponsor-text {
+  margin-bottom: 1rem;
+  @include large {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+.blog-sponsor-image {
+  vertical-align: middle;
 }

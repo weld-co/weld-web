@@ -1344,9 +1344,6 @@ p:not(:last-of-type) {
 .italic {
   font-style: italic; }
 
-.tracked {
-  letter-spacing: 4px; }
-
 .underline {
   text-decoration: underline; }
 
@@ -3316,7 +3313,7 @@ fieldset,
 
 .article-header {
   min-height: 500px;
-  height: 90vh; }
+  height: 85vh; }
   @media screen and (max-width: 50em) {
     .article-header {
       position: relative;
@@ -3395,6 +3392,12 @@ fieldset,
       .article-content > ul,
       .article-content > ol {
         max-width: 35rem; } }
+  .article-content > p:first-child {
+    font-size: 2.25rem;
+    line-height: 1.4; }
+    @media screen and (max-width: 50em) {
+      .article-content > p:first-child {
+        font-size: 1.4rem; } }
   .article-content > p:first-child:first-line {
     color: #f1592a; }
   .article-content > p:last-child:after {
@@ -3425,11 +3428,11 @@ fieldset,
     cursor: zoom-in; }
     .article-content [data-type="image"] > a:after {
       display: none; }
+  .article-content figure,
+  .article-content .gallery-container {
+    margin: 2rem auto; }
   .article-content figure[data-type="image"] {
-    max-width: 1200px;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto; }
+    max-width: 1200px; }
     @media screen and (max-width: 50em) {
       .article-content figure[data-type="image"] {
         width: calc(100% + 10vw);
@@ -3437,10 +3440,9 @@ fieldset,
   .article-content figure iframe,
   .article-content .gallery-container {
     width: calc(100% + 10vw);
-    margin-left: -5vw;
-    margin-top: 5%; }
-  .article-content figure,
+    margin-left: -5vw; }
   .article-content .gallery-container {
+    margin-top: 5%;
     margin-bottom: 5%; }
   .article-content figcaption {
     font: 300 0.75rem/1.4 "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
@@ -3553,10 +3555,24 @@ fieldset,
   width: 100%;
   max-width: 1200px; }
 
+@media screen and (max-width: 50em) {
+  .blog-sponsor {
+    flex-direction: column; } }
+
 .blog-sponsor-link {
   max-width: 150px; }
   .blog-sponsor-link:not(:last-child) {
     margin-right: 1rem; }
+
+.blog-sponsor-text {
+  margin-bottom: 1rem; }
+  @media screen and (min-width: 50em) {
+    .blog-sponsor-text {
+      margin-right: 1rem;
+      margin-bottom: 0; } }
+
+.blog-sponsor-image {
+  vertical-align: middle; }
 
 .wh-search-results {
   margin: 0; }

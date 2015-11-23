@@ -39,10 +39,18 @@
 
   <div class="bg-white column full-w" data-js="video-container">
 
-    {# Intro #}
-    {% if item.intro %}
-      <span class="article-intro p3-percent m0 bg-lightest-grey slab-font">{{ item.intro|safe }}</span>
-      {% include 'templates/partials/sharing-buttons.html' %}
+    {# Sponsors #}
+    {% if item.sponsors %}
+    <div class="blog-sponsor row center p2" style="background-color: {{item.sponsor_color}}">
+    <span class="blog-sponsor-text sans-font uppercase tracked clr-grey">{{ item.sponsor_text }}</span>
+      <div class="row center">
+        {% for row in item.sponsors %}
+        <a class="blog-sponsor-link" href="{{ row.link }}" target="_blank">
+          <img class="blog-sponsor-image" src="{{ row.logo.url }}"/>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
     {% endif %}
 
     <div class="article-content serif-font">
@@ -67,19 +75,6 @@
       {% endif %}
 
     </div> <!-- article-content -->
-
-    {% if item.sponsors %}
-    <div class="column center p2 bg-lightest-grey">
-    <h5 class="sans-font uppercase tracked">{{ item.sponsors_headline }}</h5>
-      <div class="row center">
-        {% for row in item.sponsors %}
-        <a class="blog-sponsor-link" href="{{ row.link }}" target="_blank">
-          <img class="blog-sponsor-image" src="{{ row.logo.url }}"/>
-        </a>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
 
     {# Sharing Buttons #}
     {% include 'templates/partials/sharing-buttons.html' %}
