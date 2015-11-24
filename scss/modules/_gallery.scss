@@ -1,6 +1,6 @@
 $image-height: 25vh;
-$image-width: 25vw;
-$mobile-image-size: 50vw;
+$image-width: 25%;
+$mobile-image-width: 50%;
 
 .gallery-overlay {
   background: $bg-gradient-reverse;
@@ -15,22 +15,16 @@ $mobile-image-size: 50vw;
   height: $image-height;
   width: $image-width;
   @include small {
-    height: $mobile-image-size;
-    width: $mobile-image-size;
+    width: $mobile-image-width;
   }
 }
 
 .gallery-image {
   object-fit: cover;
   height: $image-height;
-  width: $image-width;
   z-index: 0;
   &:hover {
     filter: brightness(0.8);
-  }
-  @include small {
-    height: $mobile-image-size;
-    width: $mobile-image-size;
   }
 }
 

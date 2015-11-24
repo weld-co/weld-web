@@ -41,8 +41,8 @@
 
     {# Sponsors #}
     {% if item.sponsors %}
-    <div class="blog-sponsor row center p2" style="background-color: {{item.sponsor_color}}">
-    <span class="blog-sponsor-text sans-font uppercase tracked clr-grey">{{ item.sponsor_text }}</span>
+    <div class="blog-sponsor row center p2">
+    <span class="blog-sponsor-text sans-font uppercase tracked clr-grey">Sponsored By</span>
       <div class="row center">
         {% for row in item.sponsors %}
         <a class="blog-sponsor-link" href="{{ row.link }}" target="_blank">

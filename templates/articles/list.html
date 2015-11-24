@@ -25,7 +25,7 @@
         <a class="column p3-percent" href="{{ url(object) }}">
           {% if object.author %}<img class="avatar mb2" src="{{ object.author.avatar.url }}" alt="Image of {{ object.author.name }}">{% endif %}
           <h1>{{ object.name }}</h1>
-          <p>{{ object.intro|striptags }}</p>
+          <p>{{ object.body|striptags|truncate(300) }}</p>
         </a>
         <span class="overlay bg-trans-black depth-0" style="background-color: {{ object.overlay }}; opacity: {{ object.opacity }};"></span>
       </li>

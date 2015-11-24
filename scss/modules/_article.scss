@@ -70,7 +70,10 @@ article.row {
   font-size: 1.4rem;
   line-height: 1.6;
   color: $faded-black;
-  padding: 5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
   @include small {
     font-size: 1rem;
@@ -100,6 +103,7 @@ article.row {
 > p:first-child {
   font-size: 2.25rem;
   line-height: 1.4;
+  margin-bottom: 2rem;
   @include small {
     font-size: 1.4rem;
   }
@@ -114,7 +118,7 @@ article.row {
 //====================================================
 
 > p:last-child:after {
-  content: '✍';
+  content: '\270D';
   color: $primary-color;
   font-size: 1.5rem;
   line-height: 0;
@@ -157,7 +161,7 @@ ul, ol {
 //  Links
 //====================================================
 
-a { @extend .link; }
+p > a { @extend .link; }
 
 [data-type="image"] > a {
   cursor: zoom-in;
@@ -172,7 +176,7 @@ a { @extend .link; }
 
 figure,
 .gallery-container  {
-  margin: 2rem auto;
+  margin: 3rem auto;
 }
 
 figure[data-type="image"] {
@@ -193,8 +197,8 @@ figure iframe,
 }
 
 .gallery-container {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 figcaption {
@@ -355,13 +359,14 @@ figcaption {
 //====================================================
 
 .blog-sponsor {
+  background-color: $lightest-grey;
   @include small {
     flex-direction: column;
   }
 }
 
 .blog-sponsor-link {
-  max-width: 150px;
+  max-width: 100px;
   &:not(:last-child) {
     margin-right: 1rem;
   }
