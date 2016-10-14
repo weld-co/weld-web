@@ -14,7 +14,7 @@ If you don't already have Node and NPM installed, download the newest version (v
 ### 2. NPM
 [Node comes with NPM installed](https://docs.npmjs.com/getting-started/installing-node), but you should go ahead and update NPM just to make sure you have the latest version. On the command line enter:
 
-```bash
+```
 npm install npm@latest -g
 ```
 
@@ -22,13 +22,13 @@ npm install npm@latest -g
 
 To install the Webhook and [Grunt](http://gruntjs.com/) command line tools, run:
 
-```bash
+```
 npm install -g wh grunt-cli
 ```
 
 Now, just to make sure everthing worked, check the Webhook (wh) version:
 
-```bash
+```
 wh -V
 ```
 
@@ -36,27 +36,27 @@ wh -V
 
 Clone the repo from GitHub:
 
-```bash
+```
 git clone https://github.com/weld-co/weld-web.git
 ```
 
 or if you use SSH instead:
 
-```bash
+```
 git clone git@github.com:weld-co/weld-web.git
-```bash
+```
 
 ### 5. Install the site dependencies
 
 First navigate into the `weld-web` directory:
 
-```bash
+```
 cd weld-web
 ```
 
 Then use npm to install the dependencies listed in package.json:
 
-```bash
+```
 npm install
 ```
 
@@ -65,7 +65,7 @@ npm install
 ### Local Dev Server
 Webhook comes with a local dev server which you can launch by running from the site directory:
 
-```bash
+```
 wh server
 ```
 
@@ -90,13 +90,13 @@ Logging in from `weld.co/cms` only lets you edit content already created, where 
 You can view all of the existing pages on weld.co in `weld-web/pages`. Files within this folder get turned into nested pages in the final site. For example, `pages/gallery.html` will get compiled to `.build/gallery/index.html`. 
 
 > By the way, if you're dotfiles aren't visible, run:
-> ```bash
+> ```
 > defaults write com.apple.finder AppleShowAllFiles YES; killall Finder
 > ```
 > 
 > To hide them again:
 > 
-> ```bash
+> ```
 > defaults write com.apple.finder AppleShowAllFiles NO; killall Finder
 > ```
 
