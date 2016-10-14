@@ -1,4 +1,4 @@
-# WWWWELD
+# WWWELD
 WELD's website is built and hosted with [Webhook](http://www.webhook.com/), a static site generator that allows you to easily create custom CMSs. When content is created or edited on the backend, the entire site gets rebuilt and served as a simple static site.
 
 ## Installation
