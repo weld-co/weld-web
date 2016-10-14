@@ -21,7 +21,6 @@ button {
   display: inline-block;
   background: $primary-color;
   border-radius: 3px;
-  filter: drop-shadow(0 4px 0 $red);
   padding: 1rem 2rem;
 
   // Contents
@@ -32,29 +31,30 @@ button {
   font-size: 0.875rem;
   letter-spacing: 3px;
   text-transform: uppercase;
+  transition:  transform 200ms;
 
-  // Animation
-  transition-duration: 200ms;
-  // height transition is for isLoading indicator
-  // opacity is for the .main-cta button
-  transition:
-    transform 200ms,
-    background 200ms,
-    opacity 1250ms 400ms,
-    filter 200ms,
-    -webkit-filter 200ms,
-    height 200ms;
+  // Fixing flickering/shifting during animation
+  // transform: translate3d(0, 0, 0);
+  // transform: translateZ(0);
+  // transform: translateX(0);
+  // backface-visibility: hidden;
+  // perspective: 1000;
+
+  // // Animation
+  // transition-duration: 200ms;
+  // // height transition is for isLoading indicator
+  // // opacity is for the .main-cta button
+  // transition:
+  //   transform 200ms,
+  //   background 200ms,
+  //   opacity 1250ms 400ms,
+  //   filter 200ms,
+  //   -webkit-filter 200ms,
+  //   height 200ms;
 
   &:hover {
-    transform: translateY(-3px);
     color: white;
     background: $primary-color;
-    filter: drop-shadow(0 4px 0 $red);
-  }
-
-  &:active {
-    transform: translateY(-1px);
-    transition: none;
   }
 
   // Space between buttons
@@ -77,21 +77,18 @@ button {
     @extend .button;
     color: $primary-color;
     background-color: $white;
-    filter: drop-shadow(0 4px 0 $lightest-grey);
   }
 
   &-black {
     @extend .button;
     color: white;
     background-color: $black;
-    filter: drop-shadow(0 4px 0 $true-black);
   }
 
   &-grey {
     @extend .button;
     color: $black;
     background-color: $lightest-grey;
-    filter: drop-shadow(0 4px 0 $middle-grey);
   }
 
   // Outline Buttons

@@ -3,6 +3,23 @@
 {% block title %}{{ item.name }}{% endblock %}
 {% block searchable %}true{% endblock %}
 
+{% block twitterCard %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@weld">
+  <meta name="twitter:title" content="{{item.name}}">
+  <meta name="twitter:description" content="{{ item.body|striptags|truncate(250) }}">
+  <meta name="twitter:image" content="http://www.weld.co{{ item.cover_image.url }}">
+{% endblock %}
+
+{% block facebookCard %}
+  <meta property="og:title" content="{{item.name}}"/>
+  <meta property="og:description" content="{{ item.body|striptags|truncate(250) }}"/>
+  <meta property="og:site_name" content="WELD"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:url" content="http://www.weld.co{{ url(item) }}"/>
+  <meta property="og:image" content="http://www.weld.co{{ item.cover_image.url }}"/>
+{% endblock %}
+
 {% block content %}
 
 <article class="column">

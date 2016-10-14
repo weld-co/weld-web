@@ -1090,63 +1090,78 @@ body {
   position: fixed; }
 
 .center {
-  align-items: center;
+  -ms-grid-row-align: center;
+      align-items: center;
   justify-content: center; }
 
 .top-left {
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   justify-content: flex-start; }
 
 .bottom-right {
-  align-items: flex-end;
+  -ms-grid-row-align: flex-end;
+      align-items: flex-end;
   justify-content: flex-end; }
 
 .column.top-center {
-  align-items: center;
+  -ms-grid-row-align: center;
+      align-items: center;
   justify-content: flex-start; }
 
 .column.top-right {
-  align-items: flex-end;
+  -ms-grid-row-align: flex-end;
+      align-items: flex-end;
   justify-content: flex-start; }
 
 .column.center-left {
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   justify-content: center; }
 
 .column.center-right {
-  align-items: flex-end;
+  -ms-grid-row-align: flex-end;
+      align-items: flex-end;
   justify-content: center; }
 
 .column.bottom-left {
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   justify-content: flex-end; }
 
 .column.bottom-center {
-  align-items: center;
+  -ms-grid-row-align: center;
+      align-items: center;
   justify-content: flex-end; }
 
 .row.top-center {
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   justify-content: center; }
 
 .row.top-right {
-  align-items: flex-start;
+  -ms-grid-row-align: flex-start;
+      align-items: flex-start;
   justify-content: flex-end; }
 
 .row.center-left {
-  align-items: center;
+  -ms-grid-row-align: center;
+      align-items: center;
   justify-content: flex-start; }
 
 .row.center-right {
-  align-items: center;
+  -ms-grid-row-align: center;
+      align-items: center;
   justify-content: flex-end; }
 
 .row.bottom-left {
-  align-items: flex-end;
+  -ms-grid-row-align: flex-end;
+      align-items: flex-end;
   justify-content: flex-start; }
 
 .row.bottom-center {
-  align-items: flex-end;
+  -ms-grid-row-align: flex-end;
+      align-items: flex-end;
   justify-content: center; }
 
 .optical-center {
@@ -1159,13 +1174,16 @@ body {
   justify-content: space-between; }
 
 .align-top {
-  align-items: top; }
+  -ms-grid-row-align: top;
+      align-items: top; }
 
 .align-middle {
-  align-items: middle; }
+  -ms-grid-row-align: middle;
+      align-items: middle; }
 
 .align-baseline {
-  align-items: baseline; }
+  -ms-grid-row-align: baseline;
+      align-items: baseline; }
 
 .top {
   top: 0; }
@@ -1841,8 +1859,6 @@ button, .button, .button-white, .button-black, .button-grey, .button-secondary {
   display: inline-block;
   background: #f1592a;
   border-radius: 3px;
-  -webkit-filter: drop-shadow(0 4px 0 #CC4327);
-          filter: drop-shadow(0 4px 0 #CC4327);
   padding: 1rem 2rem;
   text-align: center;
   color: white;
@@ -1851,17 +1867,10 @@ button, .button, .button-white, .button-black, .button-grey, .button-secondary {
   font-size: 0.875rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  transition-duration: 200ms;
-  transition: transform 200ms, background 200ms, opacity 1250ms 400ms, filter 200ms, -webkit-filter 200ms, height 200ms; }
+  transition: transform 200ms; }
   .button:hover, .button-white:hover, .button-black:hover, .button-grey:hover, .button-secondary:hover {
-    transform: translateY(-3px);
     color: white;
-    background: #f1592a;
-    -webkit-filter: drop-shadow(0 4px 0 #CC4327);
-            filter: drop-shadow(0 4px 0 #CC4327); }
-  .button:active, .button-white:active, .button-black:active, .button-grey:active, .button-secondary:active {
-    transform: translateY(-1px);
-    transition: none; }
+    background: #f1592a; }
   .button.margin-right, .margin-right.button-white, .margin-right.button-black, .margin-right.button-grey, .margin-right.button-secondary {
     margin-right: 1rem; }
   @media screen and (max-width: 50em) {
@@ -1873,19 +1882,13 @@ button, .button, .button-white, .button-black, .button-grey, .button-secondary {
       letter-spacing: 1px; } }
   .button-white {
     color: #f1592a;
-    background-color: #FFFFFF;
-    -webkit-filter: drop-shadow(0 4px 0 #EEEEEE);
-            filter: drop-shadow(0 4px 0 #EEEEEE); }
+    background-color: #FFFFFF; }
   .button-black {
     color: white;
-    background-color: #302824;
-    -webkit-filter: drop-shadow(0 4px 0 #000000);
-            filter: drop-shadow(0 4px 0 #000000); }
+    background-color: #302824; }
   .button-grey {
     color: #302824;
-    background-color: #EEEEEE;
-    -webkit-filter: drop-shadow(0 4px 0 #cccccc);
-            filter: drop-shadow(0 4px 0 #cccccc); }
+    background-color: #EEEEEE; }
   .button-secondary {
     background-color: transparent;
     -webkit-filter: none !important;
@@ -2001,8 +2004,6 @@ fieldset,
       max-height: 8.5rem; } }
   .input-group .input-group-input:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
     flex: 1;
-    -webkit-filter: drop-shadow(0 4px 0 #dddddd);
-            filter: drop-shadow(0 4px 0 #dddddd);
     box-shadow: none;
     padding: 1rem;
     font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
@@ -2017,8 +2018,6 @@ fieldset,
         text-align: left; } }
   .input-group .input-group-button {
     margin-bottom: 1rem; }
-    .input-group .input-group-button:hover {
-      transform: none; }
     @media screen and (min-width: 50em) {
       .input-group .input-group-button {
         border-top-left-radius: 0;
@@ -2305,7 +2304,9 @@ fieldset,
   background: url(../images/ui/weld-logo-medium.svg) no-repeat center;
   height: 100%;
   width: 100%;
-  transition: -webkit-filter 300ms, filter 300ms; }
+  transition: -webkit-filter 300ms;
+  transition: filter 300ms;
+  transition: filter 300ms, -webkit-filter 300ms; }
 
 .light .home-logo-icon {
   -webkit-filter: brightness(0.5);
@@ -2721,13 +2722,13 @@ fieldset,
   color: #ff5c50 !important; }
 
 .memberships {
-  padding: 0 8%; }
+  padding: 8%; }
   @media screen and (max-width: 50em) {
     .memberships {
       padding: 1rem; } }
 
 .announcement {
-  height: 200px;
+  margin-bottom: 50px;
   text-align: center;
   font-size: 0.8rem;
   font-weight: 300;
@@ -2766,7 +2767,8 @@ fieldset,
     .membership-wrap .tier {
       padding: 2rem;
       text-align: left;
-      align-items: flex-start; } }
+      -ms-grid-row-align: flex-start;
+          align-items: flex-start; } }
 
 .addons-wrap .tier {
   min-height: 250px;

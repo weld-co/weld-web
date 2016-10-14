@@ -3,7 +3,11 @@
 
 {% block content %}
 <section class="memberships column center">
-<a class="announcement row center" href="/digital" data-event="Memberships Page - Digital">We now offer a Digital Membership for $60 a month! <span class="important"> Learn More.</span></a>
+
+  {% if !cms.memberships.type[2].hidden %}
+  <a class="announcement row center" href="/digital" data-event="Memberships Page - Digital">We now offer a Digital Membership for $60 a month! <span class="important"> Learn More.</span></a>
+  {% endif %}
+
   <div class="membership-wrap row">
     <span class="tier column center">
       <h1 class="tier-title-primary">WELD Membership</h1>

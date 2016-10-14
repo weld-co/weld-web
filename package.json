@@ -46,8 +46,8 @@
     "nodejs-websocket": "~1.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "latest",
-    "grunt-postcss": "latest",
-    "grunt-sass": "latest"
+    "autoprefixer": "~6.3.6",
+    "grunt-postcss": "~0.8.0",
+    "grunt-sass": "~1.1.0"
   }
 }

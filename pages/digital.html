@@ -3,23 +3,22 @@
 {% block viewport %}user-scalable=yes{% endblock %}
 
 {% block content %}
-  <section class="column center p3-percent text-align-center">
-    <img class="logomark" src="/static/images/welderwire/weld-logo-87.png" width="87">
-    <h1 class="uppercase tracked">Create with the world’s best people</h1>
-    <h2 class="digital-subhead sans-font uppercase tracked important">Now from anywhere in the universe</h2>
-    <img class="members-screen relative rounded" src="/static/images/welderwire/members-page.jpg" alt="WELD Digital Membership">
-  </section>
-  {# progress on converting to real web stuff
-  <section class="section-2 text-align-center">
-    <div class="container">
-      <h1 class="sans-font thin important">We believe we’re all made to create and that we do our best work when we create together.</h1>
-      <p class="">Digital WELDERS get access to our private social network, tons of discounts on awesome products and services, day passes to our physical locations, discounted rates on studio rentals, a chance to get jobs through our trusted network and a whole lot more.</p>
+  {% if cms.memberships.type[2].hidden %}
+    <div class="message-wrap column fullscreen center">
+      <h1 class="message-heading">{{ cms.notfound.heading }}</h1>
+      <a href="/" class="button-secondary">← Back Home</a>
     </div>
-  </section>
-  #}
-  <section class="section-2"></section>
-  <section class="section-3"></section>
-  <section class="section-4"></section>
-  <section class="section-5"></section>
-  <a href="/apply"><section class="section-6"></section></a>
+  {% else %}
+    <section class="column center p3-percent text-align-center">
+      <img class="logomark" src="/static/images/welderwire/weld-logo-87.png" width="87">
+      <h1 class="uppercase tracked">Create with the world’s best people</h1>
+      <h2 class="digital-subhead sans-font uppercase tracked important">Now from anywhere in the universe</h2>
+      <img class="members-screen relative rounded" src="/static/images/welderwire/members-page.jpg" alt="WELD Digital Membership">
+    </section>
+    <section class="section-2"></section>
+    <section class="section-3"></section>
+    <section class="section-4"></section>
+    <section class="section-5"></section>
+    <a href="/apply"><section class="section-6"></section></a>
+  {% endif %}
 {% endblock %}

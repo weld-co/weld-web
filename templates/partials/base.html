@@ -37,6 +37,15 @@ Bye. Thanks for stopping by.
 
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7238032/778086/css/fonts.css" />
+
+  <!-- WELD Dashboard Firebase App -->
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
+
+  {% block twitterCard %}{% endblock %}
+  {% block facebookCard %}{% endblock %}
+
 </head>
 
   <body class="{% block scheme %}dark{% endblock %}" data-search-index="{% block searchable %}false{% endblock %}">
@@ -82,9 +91,6 @@ Bye. Thanks for stopping by.
   <script src="/static/scripts/bookings.js"></script>
   <!-- endbuild -->
 
-  <!-- Fresh URL - Learn more at http://wistia.com/blog/fresh-url -->
-  <script src="//fast.wistia.net/labs/fresh-url/v1.js" async></script>
-
   <!-- Google Analytics -->
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', '{{ getSetting('analytics_id') }}', 'auto');ga('send', 'pageview');</script>
   <!-- GoSquared -->
@@ -92,6 +98,7 @@ Bye. Thanks for stopping by.
   <script>$('[data-event]').on('click', function() { _gs('event', $(this).data('event')); });</script>
 
   {% block scripts_extra %}{% endblock %}
+  {% block firebase_init %}{% endblock %}
 
   </body>
 </html>

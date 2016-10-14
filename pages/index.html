@@ -4,7 +4,7 @@
 <main class="intro-cover row center" data-vide-bg="mp4: /static/images/video/intro-video.mp4, poster: /static/images/video/intro-video-poster.jpg" data-vide-options="posterType: jpg">
 
   <div class="action-links">
-    <a href="{{ url('articles') }}">Blog</a>
+    <a href="https://medium.com/sparks-fly">Blog</a>
     <a href="http://welderwire.co/" target="_blank" data-event="Sign In">Sign In</a>
   </div>
 
@@ -14,12 +14,10 @@
     <a href="/community" class="main-cta button-white opacity-0" data-event="{{ cms.homepage.cta }}">{{ cms.homepage.cta }}</a>
   </span>
 
-  {% for item in cms.articles|sort('publish_date', true)|slice(0,1) %}
-  <a href="{{ url(item) }}" class="news column center">
-    <span class="faded">The Latest from the WELD Blog</span>
-    <span>{{ item.name }}</a></span>
+  <a href="https://medium.com/sparks-fly" class="news column center">
+    <span>Sparks Fly: Stories &amp; ideas</span>
+    <span>from the front lines of freelancing</span>
   </a>
-  {% endfor %}
 
 </main> <!-- intro-cover -->
 

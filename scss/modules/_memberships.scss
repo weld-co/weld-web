@@ -1,12 +1,12 @@
 .memberships {
-  padding: 0 8%;
+  padding: 8%;
   @include small {
     padding: 1rem;
   }
 }
 
 .announcement {
-  height: 200px;
+  margin-bottom: 50px;
   text-align: center;
   font-size: 0.8rem;
   font-weight: 300;

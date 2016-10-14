@@ -41,131 +41,138 @@
       </span>
     </fieldset>
 
-    <div class="fieldset">
-      <label class="label" for="name">Full Name</label>
-      <input class="input" type="text" name="Name" id="name" autocorrect="off" autocapitalize="on" required>
+    <span class="js-hide-studio-form">
+      <div class="fieldset">
+        <label class="label" for="name">Full Name</label>
+        <input class="input" type="text" name="Name" id="name" autocorrect="off" autocapitalize="on" required>
+      </div>
+
+      <div class="fieldset">
+        <label class="label" for="company">Company Name</label>
+        <input class="input" type="text" name="Company" id="company" autocorrect="off" autocapitalize="on">
+      </div>
+
+      <div class="fieldset">
+        <label class="label" for="phone">Phone</label>
+        <input class="input" type="tel" name="Phone" id="phone" required>
+      </div>
+
+      <div class="fieldset">
+        <label class="label" for="email">Email</label>
+        <input class="input" type="email" name="Email" id="email" autocorrect="off" autocapitalize="off" required>
+      </div>
+
+      <div class="fieldset">
+        <label class="label" for="date">Date of Event</label>
+        <input class="input uppercase" type="date" name="Date" id="date" placeholder="MM/DD/YYYY">
+      </div>
+
+      <fieldset class="fieldset">
+        <label class="label" for="number">Estimated Number in Attendance</label>
+        <input class="input" type="number" name="attending" id="number" required>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <label class="label" for="description">Brief description of event</label>
+        <textarea class="textarea" name="Description" id="description" autocorrect="on" autocapitalize="on"></textarea>
+      </fieldset>
+
+      <div class="fieldset">
+        <label class="label" for="referral">Did a friend refer you to WELD? If so, who?</label>
+        <input class="input" type="text" name="Referral" id="referral" autocorrect="off" autocapitalize="on">
+      </div>
+
+      <label class="label">Additional Amenities</label>
+
+      <fieldset class="dallas-amenities fieldset fieldset-group stacked">
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="kitchen" id="kitchen" value="Yes">
+          <label class="checkbox-label" for="kitchen">Kitchen</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="Parking" id="parking" value="Yes">
+          <label class="checkbox-label" for="parking">Gated Parking</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="patio" id="patio" value="Yes">
+          <label class="checkbox-label" for="patio">Patio</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="workspace" id="workspace" value="Yes">
+          <label class="checkbox-label" for="workspace">Workspace</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="internet" id="internet" value="Yes">
+          <label class="checkbox-label" for="internet">Internet Access</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="chairs" id="chairs" value="Yes">
+          <label class="checkbox-label" for="chairs">Rental Chairs</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="tables" id="tables" value="Yes">
+          <label class="checkbox-label" for="tables">Rental Tables</label>
+        </span>
+      </fieldset>
+
+      <!-- Nashville Amenities list hidden on load -->
+      <fieldset class="nashville-amenities fieldset fieldset-group stacked hidden">
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="kitchen" id="kitchen-nash" value="Yes">
+          <label class="checkbox-label" for="kitchen-nash">Kitchen</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="workspace" id="workspace-nash" value="Yes">
+          <label class="checkbox-label" for="workspace-nash">Workspace</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="internet" id="internet-nash" value="Yes">
+          <label class="checkbox-label" for="internet-nash">Internet Access</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="chairs" id="chairs-nash" value="Yes">
+          <label class="checkbox-label" for="chairs-nash">Event Chairs</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="tables" id="tables-nash" value="Yes">
+          <label class="checkbox-label" for="tables-nash">Event Tables</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="lighting" id="lighting-nash" value="Yes">
+          <label class="checkbox-label" for="lighting-nash">General Lighting</label>
+        </span>
+
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="Parking" id="parking-nash" value="Yes">
+          <label class="checkbox-label" for="parking-nash">Complimentary Parking</label>
+        </span>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <span class="checkbox-wrap">
+          <input class="input" type="checkbox" name="Newsletter" id="newsletter" value="Yes">
+          <label class="checkbox-label" for="newsletter">Stay in the loop and get inspired by WELDERs via our newsletter.</label>
+        </span>
+      </fieldset>
+
+      <input class="button" type="submit" value="Submit">
+    </span> <!-- js-hide-studio-form -->
+
+    <div class="dallas-studio-message column center pt2 flipIn hidden">
+      <h4>Studio bookings are handled by <a class="link" href="http://www.ghsdallas.com/" target="_blank">Glasshouse Studio</a>.</h4>
+      <a class="button" href="http://www.ghsdallas.com/contact" target="_blank">Book the WELD studio</a>
     </div>
-
-    <div class="fieldset">
-      <label class="label" for="company">Company Name</label>
-      <input class="input" type="text" name="Company" id="company" autocorrect="off" autocapitalize="on">
-    </div>
-
-    <div class="fieldset">
-      <label class="label" for="phone">Phone</label>
-      <input class="input" type="tel" name="Phone" id="phone" required>
-    </div>
-
-    <div class="fieldset">
-      <label class="label" for="email">Email</label>
-      <input class="input" type="email" name="Email" id="email" autocorrect="off" autocapitalize="off" required>
-    </div>
-
-    <div class="fieldset">
-      <label class="label" for="date">Date of Event</label>
-      <input class="input uppercase" type="date" name="Date" id="date" placeholder="MM/DD/YYYY">
-    </div>
-
-    <fieldset class="fieldset">
-      <label class="label" for="number">Estimated Number in Attendance</label>
-      <input class="input" type="number" name="attending" id="number" required>
-    </fieldset>
-
-    <fieldset class="fieldset">
-      <label class="label" for="description">Brief description of event</label>
-      <textarea class="textarea" name="Description" id="description" autocorrect="on" autocapitalize="on"></textarea>
-    </fieldset>
-
-    <div class="fieldset">
-      <label class="label" for="referral">Did a friend refer you to WELD? If so, who?</label>
-      <input class="input" type="text" name="Referral" id="referral" autocorrect="off" autocapitalize="on">
-    </div>
-
-    <label class="label">Additional Amenities</label>
-
-    <fieldset class="dallas-amenities fieldset fieldset-group stacked">
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="kitchen" id="kitchen" value="Yes">
-        <label class="checkbox-label" for="kitchen">Kitchen</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="Parking" id="parking" value="Yes">
-        <label class="checkbox-label" for="parking">Gated Parking</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="patio" id="patio" value="Yes">
-        <label class="checkbox-label" for="patio">Patio</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="workspace" id="workspace" value="Yes">
-        <label class="checkbox-label" for="workspace">Workspace</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="internet" id="internet" value="Yes">
-        <label class="checkbox-label" for="internet">Internet Access</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="chairs" id="chairs" value="Yes">
-        <label class="checkbox-label" for="chairs">Rental Chairs</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="tables" id="tables" value="Yes">
-        <label class="checkbox-label" for="tables">Rental Tables</label>
-      </span>
-    </fieldset>
-
-    <!-- Nashville Amenities list hidden on load -->
-    <fieldset class="nashville-amenities fieldset fieldset-group stacked hidden">
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="kitchen" id="kitchen-nash" value="Yes">
-        <label class="checkbox-label" for="kitchen-nash">Kitchen</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="workspace" id="workspace-nash" value="Yes">
-        <label class="checkbox-label" for="workspace-nash">Workspace</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="internet" id="internet-nash" value="Yes">
-        <label class="checkbox-label" for="internet-nash">Internet Access</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="chairs" id="chairs-nash" value="Yes">
-        <label class="checkbox-label" for="chairs-nash">Event Chairs</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="tables" id="tables-nash" value="Yes">
-        <label class="checkbox-label" for="tables-nash">Event Tables</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="lighting" id="lighting-nash" value="Yes">
-        <label class="checkbox-label" for="lighting-nash">General Lighting</label>
-      </span>
-
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="Parking" id="parking-nash" value="Yes">
-        <label class="checkbox-label" for="parking-nash">Complimentary Parking</label>
-      </span>
-    </fieldset>
-
-    <fieldset class="fieldset">
-      <span class="checkbox-wrap">
-        <input class="input" type="checkbox" name="Newsletter" id="newsletter" value="Yes">
-        <label class="checkbox-label" for="newsletter">Stay in the loop and get inspired by WELDERs via our newsletter.</label>
-      </span>
-    </fieldset>
-
-    <input class="button" type="submit" value="Submit">
 
   </form>
   <a class="notification" href="http://learn.weld.co" target="_blank" data-event="Bookings Page - Knowledge Base">{{ cms.bookings.cta }}</a>

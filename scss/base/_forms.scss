@@ -84,7 +84,6 @@ fieldset,
 
   .input-group-input:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
     flex: 1;
-    filter: drop-shadow(0 4px 0 $light-grey);
     box-shadow: none;
     padding: 1rem;
     font-family: $sans-font;
@@ -99,9 +98,8 @@ fieldset,
     }
   }
   .input-group-button {
+    // match Texty inputs' bottom margin
     margin-bottom: 1rem;
-    &:hover { transform: none; }
-
     @include large {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
